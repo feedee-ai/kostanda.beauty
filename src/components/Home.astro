@@ -4,26 +4,33 @@ import Logo from './Logo.astro';
 import Icon from './Icon.astro';
 import { content, reviews, CONTACT, waLink, type Lang } from '../i18n/content';
 
+import heroMarina from '../assets/img/hero-marina.jpg';
+import heroMarinaScan from '../assets/img/hero-marina-scan.jpg';
+import clinicRoom from '../assets/img/clinic-room.jpg';
 import marinaPortrait from '../assets/img/marina-portrait.jpg';
-import marinaObserv from '../assets/img/marina-observ.jpg';
-import marinaScrubs from '../assets/img/marina-scrubs.jpg';
 import marinaWindow from '../assets/img/marina-window.jpg';
 import marinaBoutique from '../assets/img/marina-boutique.jpg';
-import marinaShelves from '../assets/img/marina-shelves.jpg';
-import marinaNatural from '../assets/img/marina-natural.jpg';
-import procedureIpl from '../assets/img/procedure-ipl.jpg';
-import procedureTeam from '../assets/img/procedure-team.jpg';
-import procedureRf from '../assets/img/procedure-rf.jpg';
-import clinicRoom from '../assets/img/clinic-room.jpg';
+import methodEco from '../assets/img/method-eco.jpg';
 import teamWhite from '../assets/img/team-white.jpg';
-import teamEvent from '../assets/img/team-event.jpg';
-import products from '../assets/img/products.jpg';
+import craftDevice from '../assets/img/craft-device.jpg';
+
+import txDiagnostico from '../assets/img/tx-diagnostico.jpg';
+import txAparatologia from '../assets/img/tx-aparatologia.jpg';
+import txCuidados from '../assets/img/tx-cuidados.jpg';
+import txInyectables from '../assets/img/tx-inyectables.jpg';
+import txTricologia from '../assets/img/tx-tricologia.jpg';
+import txCuerpo from '../assets/img/tx-cuerpo.jpg';
+
 import lipsBefore from '../assets/img/ba-lips-before.jpg';
 import lipsAfter from '../assets/img/ba-lips-after.jpg';
-import skinBefore from '../assets/img/ba-skin-before.jpg';
-import skinAfter from '../assets/img/ba-skin-after.jpg';
 import pigmentBefore from '../assets/img/ba-pigment-before.jpg';
 import pigmentAfter from '../assets/img/ba-pigment-after.jpg';
+import rednessBefore from '../assets/img/ba-redness-before.jpg';
+import rednessAfter from '../assets/img/ba-redness-after.jpg';
+import acneBefore from '../assets/img/ba-acne-before.jpg';
+import acneAfter from '../assets/img/ba-acne-after.jpg';
+import bodyBefore from '../assets/img/ba-body-before.jpg';
+import bodyAfter from '../assets/img/ba-body-after.jpg';
 
 interface Props {
   lang: Lang;
@@ -31,32 +38,30 @@ interface Props {
 const { lang } = Astro.props;
 const t = content[lang];
 
-const categoryImages: Record<string, any> = {
-  diagnostico: marinaObserv,
-  aparatologia: procedureIpl,
-  cuidados: procedureRf,
-  inyectables: marinaNatural,
-  tricologia: clinicRoom,
-  cuerpo: marinaShelves,
-};
-const categoryPos: Record<string, string> = {
-  diagnostico: '50% 85%',
-  aparatologia: '50% 30%',
-  cuidados: '50% 50%',
-  inyectables: '50% 30%',
-  tricologia: '30% 50%',
-  cuerpo: '50% 30%',
+const categoryImages: Record<string, { src: any; pos: string }> = {
+  diagnostico: { src: txDiagnostico, pos: '50% 40%' },
+  aparatologia: { src: txAparatologia, pos: '50% 45%' },
+  cuidados: { src: txCuidados, pos: '50% 50%' },
+  inyectables: { src: txInyectables, pos: '55% 50%' },
+  tricologia: { src: txTricologia, pos: '40% 60%' },
+  cuerpo: { src: txCuerpo, pos: '50% 60%' },
 };
 
-const cases = [
-  { ...t.results.cases[0], before: lipsBefore, after: lipsAfter },
-  { ...t.results.cases[1], before: skinBefore, after: skinAfter },
-  { ...t.results.cases[2], before: pigmentBefore, after: pigmentAfter },
-];
+const pairs: Record<string, { before: any; after: any }> = {
+  lips: { before: lipsBefore, after: lipsAfter },
+  pigment: { before: pigmentBefore, after: pigmentAfter },
+  redness: { before: rednessBefore, after: rednessAfter },
+  acne: { before: acneBefore, after: acneAfter },
+  body: { before: bodyBefore, after: bodyAfter },
+};
+const cases = t.results.cases.map((c) => ({ ...c, ...pairs[c.id] }));
 
 const treatmentOptions = [t.contact.fTreatmentDefault, ...t.treatments.categories.flatMap((c) => c.items.map((i) => i.name))];
 const year = new Date().getFullYear();
 const waHello = waLink(t.waHello);
+const LENS = 'M120 0A290 290 0 0 0 120 470A290 290 0 0 0 120 0Z';
+const revealParts = t.reveal.title.split(', ');
+const revealIntro = revealParts.length === 2 ? [revealParts[0] + ',', revealParts[1]] : [t.reveal.title, ''];
 ---
 
 <a class="skip" href="#main">{lang === 'es' ? 'Saltar al contenido' : 'Перейти к содержанию'}</a>
@@ -123,6 +128,9 @@ const waHello = waLink(t.waHello);
               <span>{line}</span>
             </span>
           ))}
+          <span class="hero__line hero__line--accent" style={`--i:${t.hero.title.length}`}>
+            <span>{t.hero.accent}</span>
+          </span>
         </h1>
         <p class="lead hero__lead">{t.hero.lead}</p>
         <div class="hero__ctas">
@@ -137,36 +145,201 @@ const waHello = waLink(t.waHello);
         </div>
       </div>
 
-      <figure class="hero__art" data-hero-art>
-        <div class="hero__lens hero__lens--photo lens">
+      <figure class="hero__art">
+        <div class="scan" data-scan>
           <Picture
-            src={marinaPortrait}
+            class="scan__base"
+            src={heroMarina}
             alt={t.hero.caption}
-            widths={[420, 640, 900]}
-            sizes="(min-width: 1024px) 30vw, 60vw"
+            widths={[480, 760, 1100, 1500]}
+            sizes="(min-width: 1024px) 44vw, 100vw"
             formats={['avif', 'webp']}
             loading="eager"
             fetchpriority="high"
           />
+          <div class="scan__layer" aria-hidden="true">
+            <Picture
+              src={heroMarinaScan}
+              alt=""
+              widths={[480, 760, 1100, 1500]}
+              sizes="(min-width: 1024px) 44vw, 100vw"
+              formats={['avif', 'webp']}
+              loading="eager"
+            />
+          </div>
+          <svg class="scan__ring" viewBox="-6 -6 252 482" aria-hidden="true">
+            <path d={LENS} />
+          </svg>
+          <p class="scan__hint">
+            <svg viewBox="0 0 240 470" width="9" height="17" aria-hidden="true"><path d={LENS} /></svg>
+            {t.hero.hint}
+          </p>
+          <p class="scan__note">{t.hero.scanNote}</p>
         </div>
-        <div class="hero__lens hero__lens--glass lens" aria-hidden="true"></div>
-        <div class="hero__petal hero__petal--a" aria-hidden="true"></div>
-        <div class="hero__petal hero__petal--b" aria-hidden="true"></div>
-        <figcaption class="hero__caption">{t.hero.caption}</figcaption>
+        <div class="hero__badge">
+          <span class="hero__badge-num num">{t.hero.badgeNum}</span>
+          <span class="hero__badge-txt">{t.hero.badge}</span>
+        </div>
+        <figcaption class="visually-hidden">{t.hero.caption}</figcaption>
       </figure>
     </div>
+  </section>
 
+  <!-- ============================================================ REVEAL -->
+  <section class="reveal" data-reveal-lens aria-labelledby="reveal-title">
+    <div class="reveal__stage">
+      <div class="reveal__media" aria-hidden="true">
+        <Picture
+          src={clinicRoom}
+          alt=""
+          widths={[800, 1400, 2000, 2800]}
+          sizes="100vw"
+          formats={['avif', 'webp']}
+        />
+      </div>
+      <div class="reveal__shade" aria-hidden="true"></div>
+      <p class="reveal__intro" aria-hidden="true">
+        <span>{revealIntro[0]}</span>
+        <span>{revealIntro[1]}</span>
+      </p>
+      <div class="wrap reveal__content">
+        <h2 class="reveal__title" id="reveal-title">{t.reveal.title}</h2>
+        <p class="reveal__lead">{t.reveal.lead}</p>
+        <dl class="reveal__stats">
+          {
+            t.reveal.stats.map((s) => (
+              <div>
+                <dt class="num">{s.n}</dt>
+                <dd>{s.l}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ FEARS -->
+  <section class="section fears" id="miedos">
     <div class="wrap">
-      <dl class="hero__facts">
+      <div class="fears__head">
+        <h2 class="h2" data-reveal>{t.fears.title}</h2>
+        <div class="fears__by" data-reveal style="--d:.08s">
+          <div class="fears__avatar">
+            <Picture src={marinaPortrait} alt="" widths={[120, 240]} sizes="64px" formats={['avif', 'webp']} />
+          </div>
+          <p>
+            {t.fears.lead}
+            <span>— {t.fears.sign}</span>
+          </p>
+        </div>
+      </div>
+      <ol class="fears__list">
         {
-          t.hero.facts.map((f) => (
-            <div>
-              <dt>{f.k}</dt>
-              <dd>{f.v}</dd>
+          t.fears.items.map((f) => (
+            <li class="fear" data-fear>
+              <p class="fear__q">
+                <span>{f.fear}</span>
+              </p>
+              <div class="fear__a">
+                <p>{f.answer}</p>
+                <blockquote class="fear__proof">
+                  <span class="fear__stars" aria-label="5/5">
+                    {[0, 1, 2, 3, 4].map(() => (
+                      <Icon name="star" size={12} />
+                    ))}
+                  </span>
+                  <p>«{f.proof.text}»</p>
+                  <footer>{f.proof.name} · Google</footer>
+                </blockquote>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============================================================ RESULTS -->
+  <section class="section results" id="resultados">
+    <div class="wrap results__grid">
+      <div class="results__side">
+        <h2 class="h2" data-reveal>{t.results.title}</h2>
+        <p class="lead" data-reveal style="--d:.08s">{t.results.lead}</p>
+        <div class="cases" role="tablist" aria-label={t.results.title}>
+          {
+            cases.map((c, i) => (
+              <button
+                type="button"
+                role="tab"
+                class="case"
+                id={`case-tab-${c.id}`}
+                aria-selected={i === 0 ? 'true' : 'false'}
+                aria-controls={`case-${c.id}`}
+                tabindex={i === 0 ? 0 : -1}
+                data-case-tab={c.id}
+              >
+                <span class="case__thumb" aria-hidden="true">
+                  <Picture src={c.after} alt="" widths={[120, 200]} sizes="56px" formats={['avif', 'webp']} />
+                </span>
+                <span class="case__txt">
+                  <span class="case__label">{c.label}</span>
+                  <span class="case__note">{c.note}</span>
+                </span>
+                <span class="case__arrow" aria-hidden="true">
+                  <Icon name="arrow" size={18} />
+                </span>
+              </button>
+            ))
+          }
+        </div>
+        <p class="results__note">{t.results.note}</p>
+      </div>
+
+      <div class="results__stage">
+        {
+          cases.map((c, i) => (
+            <div
+              class="compare"
+              id={`case-${c.id}`}
+              role="tabpanel"
+              aria-labelledby={`case-tab-${c.id}`}
+              hidden={i !== 0}
+              data-compare
+              style="--pos:50%"
+            >
+              <div class="compare__img compare__img--after">
+                <Picture
+                  src={c.after}
+                  alt={`${c.label} — ${t.results.after}`}
+                  widths={[600, 900, 1300]}
+                  sizes="(min-width: 1024px) 52vw, 100vw"
+                  formats={['avif', 'webp']}
+                />
+              </div>
+              <div class="compare__img compare__img--before">
+                <Picture
+                  src={c.before}
+                  alt={`${c.label} — ${t.results.before}`}
+                  widths={[600, 900, 1300]}
+                  sizes="(min-width: 1024px) 52vw, 100vw"
+                  formats={['avif', 'webp']}
+                />
+              </div>
+              <span class="compare__tag compare__tag--before">{t.results.before}</span>
+              <span class="compare__tag compare__tag--after">{t.results.after}</span>
+              <div class="compare__handle" aria-hidden="true">
+                <span class="compare__knob">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 6l-6 6 6 6M15 6l6 6-6 6" />
+                  </svg>
+                </span>
+              </div>
+              <input class="compare__range" type="range" min="0" max="100" value="50" step="0.5" aria-label={`${t.results.drag}: ${c.label}`} />
             </div>
           ))
         }
-      </dl>
+      </div>
     </div>
   </section>
 
@@ -178,21 +351,19 @@ const waHello = waLink(t.waHello);
         <p class="lead" data-reveal style="--d:.08s">{t.method.lead}</p>
       </div>
       <div class="method__media" data-reveal style="--d:.1s">
-        <Picture
-          src={procedureTeam}
-          alt=""
-          widths={[480, 720]}
-          sizes="(min-width: 1024px) 40vw, 100vw"
-          formats={['avif', 'webp']}
-        />
+        <div class="method__lens lens">
+          <Picture src={methodEco} alt="" widths={[420, 700, 1000]} sizes="(min-width: 1024px) 30vw, 70vw" formats={['avif', 'webp']} />
+        </div>
       </div>
       <ol class="method__steps">
         {
           t.method.steps.map((s, i) => (
             <li class="method__step" data-reveal style={`--d:${0.1 + i * 0.1}s`}>
-              <span class="method__dot" aria-hidden="true" />
-              <h3>{s.t}</h3>
-              <p>{s.d}</p>
+              <span class="method__n num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <h3>{s.t}</h3>
+                <p>{s.d}</p>
+              </div>
             </li>
           ))
         }
@@ -224,13 +395,14 @@ const waHello = waLink(t.waHello);
               t.treatments.categories.map((c, i) => (
                 <div class:list={['tx__visual-item', i === 0 && 'is-active']} data-visual={c.id}>
                   <Picture
-                    src={categoryImages[c.id]}
+                    src={categoryImages[c.id].src}
                     alt=""
-                    widths={[420, 680]}
-                    sizes="(min-width: 1024px) 32vw, 1px"
+                    widths={[480, 760, 1000]}
+                    sizes="(min-width: 1024px) 34vw, 1px"
                     formats={['avif', 'webp']}
-                    style={`object-position:${categoryPos[c.id]}`}
+                    style={`object-position:${categoryImages[c.id].pos}`}
                   />
+                  <span class="tx__visual-cap">{c.title}</span>
                 </div>
               ))
             }
@@ -253,6 +425,16 @@ const waHello = waLink(t.waHello);
               </h3>
               <div class="acc__panel" id={`tx-panel-${c.id}`} role="region">
                 <div class="acc__inner">
+                  <div class="acc__media" aria-hidden="true">
+                    <Picture
+                      src={categoryImages[c.id].src}
+                      alt=""
+                      widths={[480, 760]}
+                      sizes="(max-width: 1023px) 92vw, 1px"
+                      formats={['avif', 'webp']}
+                      style={`object-position:${categoryImages[c.id].pos}`}
+                    />
+                  </div>
                   <p class="acc__lead">{c.lead}</p>
                   <ul class="acc__items">
                     {c.items.map((it) => (
@@ -262,12 +444,7 @@ const waHello = waLink(t.waHello);
                       </li>
                     ))}
                   </ul>
-                  <a
-                    class="link"
-                    href={waLink(`${t.waHello} — ${c.title}`)}
-                    target="_blank"
-                    rel="noopener"
-                  >
+                  <a class="link" href={waLink(`${t.waHello} — ${c.title}`)} target="_blank" rel="noopener">
                     {t.treatments.ask}
                     <Icon name="arrow" size={18} />
                   </a>
@@ -280,125 +457,22 @@ const waHello = waLink(t.waHello);
     </div>
   </section>
 
-  <!-- ============================================================ RESULTS -->
-  <section class="section results" id="resultados">
-    <div class="wrap">
-      <div class="results__head">
-        <h2 class="h2" data-reveal>{t.results.title}</h2>
-        <div class="results__tabs" role="tablist" aria-label={t.results.title} data-reveal style="--d:.08s">
-          {
-            cases.map((c, i) => (
-              <button
-                type="button"
-                role="tab"
-                class="tab"
-                id={`case-tab-${c.id}`}
-                aria-selected={i === 0 ? 'true' : 'false'}
-                aria-controls={`case-${c.id}`}
-                tabindex={i === 0 ? 0 : -1}
-                data-case-tab={c.id}
-              >
-                {c.label}
-              </button>
-            ))
-          }
-        </div>
-      </div>
-
-      <div class="results__stage" data-reveal style="--d:.12s">
-        {
-          cases.map((c, i) => (
-            <div
-              class="compare"
-              id={`case-${c.id}`}
-              role="tabpanel"
-              aria-labelledby={`case-tab-${c.id}`}
-              hidden={i !== 0}
-              data-compare
-              style="--pos:50%"
-            >
-              <div class="compare__img compare__img--after">
-                <Picture
-                  src={c.after}
-                  alt={`${c.label} — ${t.results.after}`}
-                  widths={[640, 1080, 1600]}
-                  sizes="(min-width: 1360px) 1320px, 100vw"
-                  formats={['avif', 'webp']}
-                />
-              </div>
-              <div class="compare__img compare__img--before">
-                <Picture
-                  src={c.before}
-                  alt={`${c.label} — ${t.results.before}`}
-                  widths={[640, 1080, 1600]}
-                  sizes="(min-width: 1360px) 1320px, 100vw"
-                  formats={['avif', 'webp']}
-                />
-              </div>
-              <span class="compare__tag compare__tag--before">{t.results.before}</span>
-              <span class="compare__tag compare__tag--after">{t.results.after}</span>
-              <div class="compare__handle" aria-hidden="true">
-                <span class="compare__knob">
-                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 6l-6 6 6 6M15 6l6 6-6 6" />
-                  </svg>
-                </span>
-              </div>
-              <input class="compare__range" type="range" min="0" max="100" value="50" step="0.5" aria-label={`${t.results.drag}: ${c.label}`} />
-            </div>
-          ))
-        }
-      </div>
-      <p class="results__note">{t.results.note}</p>
-    </div>
-  </section>
-
-  <!-- ============================================================ PRINCIPLES -->
-  <section class="section principles" id="principios">
-    <div class="principles__glow lens" aria-hidden="true"></div>
-    <div class="wrap">
-      <div class="principles__head">
-        <h2 class="h2" data-reveal>{t.principles.title}</h2>
-        <p class="lead" data-reveal style="--d:.08s">{t.principles.lead}</p>
-      </div>
-      <ol class="principles__list">
-        {
-          t.principles.items.map((p, i) => (
-            <li data-reveal style={`--d:${(i % 2) * 0.08}s`}>
-              <span class="principles__n num" aria-hidden="true">{i + 1}</span>
-              <div>
-                <h3>{p.t}</h3>
-                <p>{p.d}</p>
-              </div>
-            </li>
-          ))
-        }
-      </ol>
-    </div>
-  </section>
-
   <!-- ============================================================ DOCTOR -->
   <section class="section doctor" id="doctora">
     <div class="wrap doctor__grid">
       <div class="doctor__media">
         <div class="doctor__lens lens" data-reveal>
           <Picture
-            src={marinaScrubs}
+            src={marinaPortrait}
             alt={t.doctor.sign}
-            widths={[420, 640, 900]}
-            sizes="(min-width: 1024px) 28vw, 70vw"
+            widths={[480, 760, 1100]}
+            sizes="(min-width: 1024px) 30vw, 74vw"
             formats={['avif', 'webp']}
-            style="object-position: 58% 30%"
+            style="object-position: 46% 20%"
           />
         </div>
         <div class="doctor__small" data-reveal style="--d:.15s">
-          <Picture
-            src={marinaWindow}
-            alt=""
-            widths={[360, 600]}
-            sizes="(min-width: 1024px) 18vw, 45vw"
-            formats={['avif', 'webp']}
-          />
+          <Picture src={marinaWindow} alt="" widths={[400, 700]} sizes="(min-width: 1024px) 18vw, 45vw" formats={['avif', 'webp']} />
         </div>
       </div>
       <div class="doctor__copy">
@@ -417,6 +491,9 @@ const waHello = waLink(t.waHello);
   <!-- ============================================================ TEAM -->
   <section class="section team" id="equipo">
     <div class="wrap team__grid">
+      <div class="team__photo" data-reveal>
+        <Picture src={teamWhite} alt="Kostanda Beauty" widths={[600, 900, 1260]} sizes="(min-width: 1024px) 46vw, 92vw" formats={['avif', 'webp']} />
+      </div>
       <div class="team__copy">
         <h2 class="h2" data-reveal>{t.team.title}</h2>
         <p class="lead" data-reveal style="--d:.08s">{t.team.lead}</p>
@@ -431,14 +508,6 @@ const waHello = waLink(t.waHello);
           }
         </ul>
       </div>
-      <div class="team__photos">
-        <div class="team__photo team__photo--a" data-reveal>
-          <Picture src={teamWhite} alt="Kostanda Beauty" widths={[480, 700]} sizes="(min-width: 1024px) 34vw, 90vw" formats={['avif', 'webp']} />
-        </div>
-        <div class="team__photo team__photo--b" data-reveal style="--d:.12s">
-          <Picture src={teamEvent} alt="" widths={[360, 600]} sizes="(min-width: 1024px) 20vw, 50vw" formats={['avif', 'webp']} />
-        </div>
-      </div>
     </div>
   </section>
 
@@ -446,7 +515,7 @@ const waHello = waLink(t.waHello);
   <section class="section craft" id="equipos">
     <div class="wrap craft__grid">
       <div class="craft__media" data-reveal>
-        <Picture src={clinicRoom} alt="Kostanda Beauty" widths={[600, 1000, 1400]} sizes="(min-width: 1024px) 50vw, 100vw" formats={['avif', 'webp']} />
+        <Picture src={craftDevice} alt="Classys Volnewmer" widths={[600, 1000, 1400]} sizes="(min-width: 1024px) 50vw, 100vw" formats={['avif', 'webp']} />
       </div>
       <div class="craft__copy">
         <h2 class="h2" data-reveal>{t.craft.title}</h2>
@@ -465,7 +534,7 @@ const waHello = waLink(t.waHello);
                 <>
                   <span class="marquee__item">{b}</span>
                   <svg class="marquee__sep" viewBox="0 0 240 470">
-                    <path d="M120 0A290 290 0 0 0 120 470A290 290 0 0 0 120 0Z" />
+                    <path d={LENS} />
                   </svg>
                 </>
               ))}
@@ -627,12 +696,7 @@ const waHello = waLink(t.waHello);
             </div>
           </dl>
           <div class="contact__map">
-            <iframe
-              title="Kostanda Beauty — Google Maps"
-              src={CONTACT.mapsEmbed}
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
+            <iframe title="Kostanda Beauty — Google Maps" src={CONTACT.mapsEmbed} loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
           <a class="link" href={CONTACT.maps} target="_blank" rel="noopener">
             {t.contact.route}
@@ -702,7 +766,6 @@ const waHello = waLink(t.waHello);
   </div>
 </footer>
 
-<!-- mobile sticky booking bar -->
 <div class="dock" data-dock>
   <a class="btn dock__wa" href={waHello} target="_blank" rel="noopener">
     <span>{t.book}</span>

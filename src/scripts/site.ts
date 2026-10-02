@@ -217,6 +217,136 @@ function heroParallax() {
   );
 }
 
+
+function scanLens() {
+  const el = document.querySelector<HTMLElement>('[data-scan]');
+  if (!el) return;
+  const still = reduce();
+  let w = 0, h = 0;
+  const measure = () => {
+    const r = el.getBoundingClientRect();
+    w = r.width;
+    h = r.height;
+  };
+  measure();
+  window.addEventListener('resize', measure, { passive: true });
+
+  // idle orbit around the face; pointer takes over on hover / drag
+  const center = () => ({ x: w * 0.64, y: h * 0.32 });
+  let x = center().x, y = center().y, tx = x, ty = y;
+  let pointer = false;
+  let visible = true;
+  let raf = 0;
+  const t0 = performance.now();
+
+  const apply = () => {
+    el.style.setProperty('--x', `${x.toFixed(1)}px`);
+    el.style.setProperty('--y', `${y.toFixed(1)}px`);
+  };
+
+  const tick = (now: number) => {
+    raf = 0;
+    if (!pointer) {
+      const t = (now - t0) / 1000;
+      const c = center();
+      tx = c.x + Math.sin(t * 0.55) * w * 0.16;
+      ty = c.y + Math.sin(t * 0.37 + 1.2) * h * 0.1;
+    }
+    const k = pointer ? 0.18 : 0.06;
+    x += (tx - x) * k;
+    y += (ty - y) * k;
+    apply();
+    if (visible && !still) raf = requestAnimationFrame(tick);
+  };
+
+  const start = () => {
+    if (!raf && !still) raf = requestAnimationFrame(tick);
+  };
+
+  const move = (e: PointerEvent) => {
+    if (e.pointerType === 'touch' && e.buttons === 0) return;
+    const r = el.getBoundingClientRect();
+    tx = Math.max(0, Math.min(r.width, e.clientX - r.left));
+    ty = Math.max(0, Math.min(r.height, e.clientY - r.top));
+    pointer = true;
+    el.classList.add('is-touched');
+    if (still) {
+      x = tx;
+      y = ty;
+      apply();
+    }
+    start();
+  };
+  el.addEventListener('pointermove', move);
+  el.addEventListener('pointerdown', move);
+  el.addEventListener('pointerleave', () => {
+    pointer = false;
+    start();
+  });
+  el.addEventListener('pointerup', (e) => {
+    if (e.pointerType === 'touch') pointer = false;
+  });
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver((entries) => {
+      visible = entries[0].isIntersecting;
+      if (visible) start();
+    }).observe(el);
+  }
+
+  apply();
+  window.setTimeout(() => el.classList.add('is-live'), still ? 0 : 1300);
+  start();
+}
+
+function revealLens() {
+  const sec = document.querySelector<HTMLElement>('[data-reveal-lens]');
+  if (!sec || reduce()) return;
+  let ticking = false;
+  const clamp = (v: number) => Math.max(0, Math.min(1, v));
+  const ease = (v: number) => (v < 0.5 ? 4 * v * v * v : 1 - Math.pow(-2 * v + 2, 3) / 2);
+  const update = () => {
+    ticking = false;
+    const r = sec.getBoundingClientRect();
+    const run = r.height - window.innerHeight;
+    const raw = clamp(-r.top / Math.max(1, run * 0.82));
+    const p = ease(raw);
+    sec.style.setProperty('--p', p.toFixed(4));
+    sec.style.setProperty('--t', clamp((raw - 0.62) / 0.3).toFixed(4));
+  };
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    },
+    { passive: true },
+  );
+  window.addEventListener('resize', update, { passive: true });
+  update();
+}
+
+function fears() {
+  const items = document.querySelectorAll<HTMLElement>('[data-fear]');
+  if (!('IntersectionObserver' in window)) {
+    items.forEach((i) => i.classList.add('is-in'));
+    return;
+  }
+  const io = new IntersectionObserver(
+    (entries) =>
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-in');
+          io.unobserve(e.target);
+        }
+      }),
+    { threshold: 0.6 },
+  );
+  items.forEach((i) => io.observe(i));
+}
+
 export function initSite() {
   header();
   menu();
@@ -224,5 +354,7 @@ export function initSite() {
   compare();
   book();
   reveal();
-  heroParallax();
+  scanLens();
+  revealLens();
+  fears();
 }

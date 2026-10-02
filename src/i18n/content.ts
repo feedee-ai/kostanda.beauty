@@ -26,8 +26,8 @@ const es = {
       'Clínica de medicina estética de la Dra. Marina Kostanda en el centro de Valencia: diagnóstico de la piel, IPL Candela, Frax 1550, RF, inyectables y cuidados Biologique Recherche. Atención en español, ruso y ucraniano.',
   },
   nav: [
-    { href: '#tratamientos', label: 'Tratamientos' },
     { href: '#resultados', label: 'Resultados' },
+    { href: '#tratamientos', label: 'Tratamientos' },
     { href: '#doctora', label: 'La doctora' },
     { href: '#ventajas', label: 'Ventajas' },
     { href: '#opiniones', label: 'Opiniones' },
@@ -39,29 +39,70 @@ const es = {
   waHello: 'Hola, quiero reservar una consulta en Kostanda Beauty.',
   waOnline: 'Hola, me gustaría una consulta online gratuita.',
   hero: {
-    title: ['Primero entendemos', 'tu piel.', 'Después la tratamos.'],
+    title: ['Tu piel no necesita', 'más tratamientos.'],
+    accent: 'Necesita los adecuados.',
     lead:
-      'Clínica de medicina estética de la Dra. Marina Kostanda en el centro de Valencia. Diagnóstico con equipos de última generación, protocolos combinados y recomendaciones honestas: sin imponer y sin sobrecargar el rostro.',
+      'Soy la Dra. Marina Kostanda. En mi clínica del centro de Valencia todo empieza por un diagnóstico: vemos lo que el espejo no enseña y te proponemos solo lo que de verdad va a funcionar.',
     primary: 'Reservar por WhatsApp',
     secondary: 'Consulta online gratuita',
-    facts: [
-      { k: 'Dónde', v: 'Guillem de Castro, 8 · Ciutat Vella' },
-      { k: 'Idiomas', v: 'Español · Русский · Українська' },
-      { k: 'Centro sanitario', v: 'Nº registro 45856' },
-    ],
+    hint: 'Mueve la lente sobre la foto',
+    scanNote: 'Así se ve la piel en el análisis UV · ilustración',
+    badgeNum: '1000+',
+    badge: 'pacientes nos confiaron su piel',
     caption: 'Dra. Marina Kostanda, fundadora',
   },
+  reveal: {
+    title: 'Una clínica médica, no un salón de belleza.',
+    lead: 'Médicos con título homologado en España, equipos certificados y cosmética profesional que no encontrarás en una tienda.',
+    stats: [
+      { n: '1000+', l: 'pacientes confiaron su piel a la clínica' },
+      { n: '9', l: 'equipos certificados, del escáner Observ 520 al láser Frax 1550' },
+      { n: '8', l: 'marcas de cosmética profesional, de Biologique Recherche a iS Clinical' },
+    ],
+  },
+  fears: {
+    title: 'Lo que da miedo antes de ir a una clínica estética',
+    lead: 'Lo escuchamos cada semana. Te respondo con la misma honestidad que en consulta.',
+    sign: 'Dra. Marina Kostanda',
+    items: [
+      {
+        fear: '«Me van a vender tratamientos que no necesito»',
+        answer: 'Nunca impongo. Mi trabajo es recomendar con honestidad, y la decisión siempre es tuya. Si algo no te hace falta, te lo digo.',
+        proof: { text: 'Лишнего не назначает.', name: 'Kateryna Kharechko' },
+      },
+      {
+        fear: '«Me quedará la cara hinchada y artificial»',
+        answer: 'Creo en la belleza natural, sin exceso de rellenos. Si ya tienes ácido hialurónico, primero lo vemos en ecografía y solo después decidimos.',
+        proof: { text: 'Губы идеальные и натуральные.', name: 'Maya Linková' },
+      },
+      {
+        fear: '«Me atenderá alguien sin formación médica»',
+        answer: 'Aquí trabajan médicos. Homologué mi título y volví a obtener mi número de colegiada en España. La clínica es un centro sanitario registrado (Nº 45856).',
+        proof: { text: 'Врачи — профессионалы, всё объясняют детально и понятно.', name: 'Анна Ковтун' },
+      },
+      {
+        fear: '«Va a doler y saldrán moratones»',
+        answer: 'Antes de empezar te explico cada paso y elegimos la técnica más cómoda para ti. Esto es lo que cuentan nuestras pacientes:',
+        proof: { text: 'Всё прошло совершенно безболезненно.', name: 'Valery Ivanova' },
+      },
+      {
+        fear: '«Gastaré dinero y no veré resultado»',
+        answer: 'El resultado empieza en el diagnóstico. Observ 520 y la ecografía muestran lo que pasa en las capas profundas; con eso armamos el protocolo y te acompañamos hasta el final.',
+        proof: { text: 'Свое лицо доверяю только Kostanda Beauty уже более 2х лет!', name: 'Darina Derzkaya' },
+      },
+    ],
+  },
   method: {
-    title: 'Un plan para tu piel, no una cita suelta',
-    lead: 'Cada protocolo nace de un diagnóstico. Así sabemos qué necesita tu piel y, sobre todo, qué no necesita.',
+    title: 'Primero, diagnóstico. Después, un plan. Solo entonces, tratamientos.',
+    lead: 'Así cada sesión suma hacia un resultado, en lugar de ser un intento suelto.',
     steps: [
       {
         t: 'Diagnóstico',
         d: 'Analizamos la piel por capas con el escáner Observ 520 y, si hubo rellenos antes, con ecografía facial de alta frecuencia. Vemos lo que el espejo no enseña.',
       },
       {
-        t: 'Protocolo combinado',
-        d: 'Unimos aparatología, inyectables y cuidados en un plan a tu medida. No existe una única «inyección mágica»: existe una estrategia.',
+        t: 'Plan a tu medida',
+        d: 'Combinamos aparatología, inyectables y cuidados en un protocolo pensado para tu caso. No existe una única «inyección mágica»: existe una estrategia.',
       },
       {
         t: 'Acompañamiento',
@@ -159,30 +200,18 @@ const es = {
   },
   results: {
     title: 'Resultados de nuestras pacientes',
-    lead: 'Desliza para comparar el antes y el después.',
+    lead: 'Desliza para comparar. Hemos alineado cada par para que veas solo lo que ha cambiado.',
     before: 'Antes',
     after: 'Después',
     drag: 'Comparar antes y después',
     cases: [
-      { id: 'lips', label: 'Labios · ácido hialurónico' },
-      { id: 'skin', label: 'Acné e inflamación' },
-      { id: 'pigment', label: 'Pigmentación' },
+      { id: 'lips', label: 'Labios', note: 'Ácido hialurónico' },
+      { id: 'pigment', label: 'Pigmentación', note: 'Manchas y pecas' },
+      { id: 'redness', label: 'Rojeces', note: 'Tono y vasos' },
+      { id: 'acne', label: 'Acné', note: 'Inflamación activa' },
+      { id: 'body', label: 'Abdomen', note: 'Calidad de la piel' },
     ],
     note: 'Fotos de pacientes de Kostanda Beauty. Cada piel responde de forma distinta: el resultado depende del diagnóstico y del protocolo.',
-  },
-  principles: {
-    title: 'Ocho principios de la Dra. Kostanda',
-    lead: 'Las reglas con las que trabaja la clínica. Las escribió Marina y las cumple todo el equipo.',
-    items: [
-      { t: 'Nunca impongo', d: 'Mi tarea es recomendar con honestidad y profesionalidad. Tu rostro, tu decisión.' },
-      { t: 'No compito con precios bajos', d: 'A la cosmetóloga no se acude por un descuento, sino por resultados y confianza.' },
-      { t: 'No busco pacientes de otros especialistas', d: 'Cada persona elige por conexión, por visión de la belleza y por cualidades humanas.' },
-      { t: 'No comento lo que recetan otros médicos', d: 'En mi consulta hablo solo de ti y de mi trabajo.' },
-      { t: 'Solo las mejores formaciones', d: 'No ahorro en conocimiento: invierto en calidad, seguridad y nuevas posibilidades.' },
-      { t: 'Tecnología para resultados, no para Instagram', d: 'Los equipos están aquí por seguridad y eficacia.' },
-      { t: 'Siempre soy sincera', d: 'Es normal que no te guste lo que digo. Mi papel es guiarte hacia un cuidado real.' },
-      { t: 'Este trabajo es parte de mí', d: '¿Quieres saber si coincidimos? Ven a una consulta.' },
-    ],
   },
   doctor: {
     title: 'De endocrinóloga en Járkov a su propia clínica en Valencia',
@@ -195,8 +224,8 @@ const es = {
     sign: 'Dra. Marina Kostanda',
   },
   team: {
-    title: 'Un equipo que no deja de aprender',
-    lead: 'Especialistas con formación médica que te explican cada paso. Formación continua en técnica, seguridad y primeros auxilios.',
+    title: 'Tu rostro, en manos de médicos',
+    lead: 'Especialistas con formación médica que te explican cada paso antes de empezar y trabajan solo con protocolos seguros y equipos certificados.',
     people: [
       { n: 'Dra. Marina Kostanda', r: 'Fundadora · medicina estética' },
       { n: 'Anastasia', r: 'Doctora' },
@@ -303,8 +332,8 @@ const ru: typeof es = {
       'Клиника эстетической медицины доктора Марины Костанды в центре Валенсии: диагностика кожи, IPL Candela, Frax 1550, RF-лифтинг, инъекции и уходы Biologique Recherche. Говорим по-русски, по-украински и по-испански.',
   },
   nav: [
-    { href: '#tratamientos', label: 'Процедуры' },
     { href: '#resultados', label: 'Результаты' },
+    { href: '#tratamientos', label: 'Процедуры' },
     { href: '#doctora', label: 'О докторе' },
     { href: '#ventajas', label: 'Привилегии' },
     { href: '#opiniones', label: 'Отзывы' },
@@ -316,29 +345,70 @@ const ru: typeof es = {
   waHello: 'Здравствуйте! Хочу записаться на консультацию в Kostanda Beauty.',
   waOnline: 'Здравствуйте! Хочу записаться на бесплатную онлайн-консультацию.',
   hero: {
-    title: ['Сначала понимаем', 'вашу кожу.', 'Потом лечим.'],
+    title: ['Вашей коже не нужно', 'больше процедур.'],
+    accent: 'Ей нужны правильные.',
     lead:
-      'Клиника эстетической медицины доктора Марины Костанды в центре Валенсии. Аппаратная диагностика, комбинированные протоколы и честные рекомендации: без навязывания и без перегруза лица.',
+      'Я — доктор Марина Костанда. В моей клинике в центре Валенсии всё начинается с диагностики: мы видим то, что не видно в зеркале, и предлагаем только то, что действительно сработает.',
     primary: 'Записаться в WhatsApp',
     secondary: 'Бесплатная онлайн-консультация',
-    facts: [
-      { k: 'Где', v: 'Guillem de Castro, 8 · Ciutat Vella' },
-      { k: 'Языки', v: 'Русский · Українська · Español' },
-      { k: 'Медицинский центр', v: 'Регистрационный № 45856' },
-    ],
+    hint: 'Проведите линзой по фото',
+    scanNote: 'Так выглядит кожа в UV-режиме диагностики · иллюстрация',
+    badgeNum: '1000+',
+    badge: 'пациентов доверили нам свою кожу',
     caption: 'Доктор Марина Костанда, основательница',
   },
+  reveal: {
+    title: 'Медицинская клиника, а не салон красоты.',
+    lead: 'Врачи с подтверждённым в Испании дипломом, сертифицированное оборудование и профессиональная косметика, которой нет в магазинах.',
+    stats: [
+      { n: '1000+', l: 'пациентов доверили клинике свою кожу' },
+      { n: '9', l: 'сертифицированных аппаратов — от сканера Observ 520 до лазера Frax 1550' },
+      { n: '8', l: 'брендов профессиональной косметики — от Biologique Recherche до iS Clinical' },
+    ],
+  },
+  fears: {
+    title: 'Чего боятся перед походом к косметологу',
+    lead: 'Мы слышим это каждую неделю. Отвечаю так же честно, как на консультации.',
+    sign: 'Доктор Марина Костанда',
+    items: [
+      {
+        fear: '«Мне навяжут кучу процедур»',
+        answer: 'Я никогда не навязываю. Моя задача — честно рекомендовать, а решение всегда за вами. Если процедура не нужна, я так и скажу.',
+        proof: { text: 'Лишнего не назначает.', name: 'Kateryna Kharechko' },
+      },
+      {
+        fear: '«Лицо станет перекачанным и неестественным»',
+        answer: 'Я за натуральную красоту — без лишних филлеров и перегруза лица. Если филлер уже есть, сначала смотрим его на УЗИ и только потом решаем.',
+        proof: { text: 'Губы идеальные и натуральные.', name: 'Maya Linková' },
+      },
+      {
+        fear: '«Попаду к мастеру без медицинского образования»',
+        answer: 'Здесь работают врачи. Я подтвердила диплом и заново получила номер врача в Испании, а клиника — зарегистрированный медицинский центр (№ 45856).',
+        proof: { text: 'Врачи — профессионалы, всё объясняют детально и понятно.', name: 'Анна Ковтун' },
+      },
+      {
+        fear: '«Будет больно, останутся синяки»',
+        answer: 'До начала объясняю каждый шаг и подбираю самую комфортную технику. Вот что рассказывают пациенты:',
+        proof: { text: 'Всё прошло совершенно безболезненно.', name: 'Valery Ivanova' },
+      },
+      {
+        fear: '«Потрачу деньги, а результата не будет»',
+        answer: 'Результат начинается с диагностики. Observ 520 и УЗИ показывают, что происходит в глубоких слоях, — под это собираем протокол и ведём вас до результата.',
+        proof: { text: 'Свое лицо доверяю только Kostanda Beauty уже более 2х лет!', name: 'Darina Derzkaya' },
+      },
+    ],
+  },
   method: {
-    title: 'План для вашей кожи, а не разовая процедура',
-    lead: 'Каждый протокол начинается с диагностики. Так мы понимаем, что нужно коже и, главное, что ей не нужно.',
+    title: 'Сначала диагностика. Потом план. И только потом процедуры.',
+    lead: 'Так каждая процедура работает на результат, а не становится разовой попыткой.',
     steps: [
       {
         t: 'Диагностика',
         d: 'Изучаем кожу по слоям на сканере Observ 520, а если раньше вводились филлеры, делаем высокочастотное УЗИ лица. Видим то, что не видно в зеркале.',
       },
       {
-        t: 'Комбинированный протокол',
-        d: 'Сочетаем аппараты, инъекции и уходы в индивидуальный план. Не одна «волшебная» инъекция, а стратегия.',
+        t: 'План под вас',
+        d: 'Сочетаем аппараты, инъекции и уходы в протокол под вашу задачу. Не одна «волшебная» инъекция, а стратегия.',
       },
       {
         t: 'Сопровождение',
@@ -436,30 +506,18 @@ const ru: typeof es = {
   },
   results: {
     title: 'Результаты наших пациентов',
-    lead: 'Потяните, чтобы сравнить «до» и «после».',
+    lead: 'Потяните ползунок. Мы совместили каждую пару, чтобы было видно только то, что изменилось.',
     before: 'До',
     after: 'После',
     drag: 'Сравнить до и после',
     cases: [
-      { id: 'lips', label: 'Губы · гиалуроновая кислота' },
-      { id: 'skin', label: 'Акне и воспаления' },
-      { id: 'pigment', label: 'Пигментация' },
+      { id: 'lips', label: 'Губы', note: 'Гиалуроновая кислота' },
+      { id: 'pigment', label: 'Пигментация', note: 'Пятна и веснушки' },
+      { id: 'redness', label: 'Покраснения', note: 'Тон и сосуды' },
+      { id: 'acne', label: 'Акне', note: 'Активные воспаления' },
+      { id: 'body', label: 'Живот', note: 'Качество кожи' },
     ],
     note: 'Фото пациентов Kostanda Beauty. Каждая кожа реагирует по-своему: результат зависит от диагностики и протокола.',
-  },
-  principles: {
-    title: '8 принципов доктора Костанды',
-    lead: 'Правила, по которым работает клиника. Их сформулировала Марина, и им следует вся команда.',
-    items: [
-      { t: 'Я никогда не навязываю', d: 'Моя задача — честно и профессионально рекомендовать. Ваше лицо — ваше решение.' },
-      { t: 'Я не демпингую', d: 'К косметологу приходят не за скидкой, а за результатом и доверием.' },
-      { t: 'Я не переманиваю пациентов', d: 'Каждый выбирает косметолога по ощущениям, взгляду на красоту и человеческим качествам.' },
-      { t: 'Я не обсуждаю назначения других врачей', d: 'В моём кабинете я говорю только о вас и своей работе.' },
-      { t: 'Только лучшие обучения', d: 'Не экономлю на знаниях: вкладываюсь в качество, безопасность и новые возможности.' },
-      { t: 'Технологии не для красоты в Инстаграме', d: 'Оборудование здесь ради безопасности и эффективности.' },
-      { t: 'Я всегда честна', d: 'Нормально, если вам не понравится то, что я говорю. Я веду к адекватному и грамотному уходу.' },
-      { t: 'Моя работа — часть меня', d: 'Хотите понять, совпадём ли мы во взглядах? Приходите на консультацию.' },
-    ],
   },
   doctor: {
     title: 'От эндокринолога в Харькове до своей клиники в Валенсии',
@@ -472,8 +530,8 @@ const ru: typeof es = {
     sign: 'Доктор Марина Костанда',
   },
   team: {
-    title: 'Команда, которая не перестаёт учиться',
-    lead: 'Специалисты с медицинским образованием, которые объясняют каждый шаг. Постоянно учимся: техника, безопасность, неотложная помощь.',
+    title: 'Ваше лицо — в руках врачей',
+    lead: 'Специалисты с медицинским образованием, которые объясняют каждый шаг до начала процедуры и работают только по безопасным протоколам на сертифицированном оборудовании.',
     people: [
       { n: 'Доктор Марина Костанда', r: 'Основательница · эстетическая медицина' },
       { n: 'Анастасия', r: 'Врач' },
