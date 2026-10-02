@@ -1,0 +1,75 @@
+---
+import '../styles/global.css';
+import '../styles/sections.css';
+import { content, CONTACT, type Lang } from '../i18n/content';
+import ogImage from '../assets/img/og.jpg';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = content[lang];
+const site = Astro.site ?? new URL('https://kostanda.beauty');
+const canonical = new URL(lang === 'es' ? '/' : '/ru/', site).href;
+const esUrl = new URL('/', site).href;
+const ruUrl = new URL('/ru/', site).href;
+const og = new URL(ogImage.src, site).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': ['MedicalClinic', 'BeautySalon'],
+  name: 'Kostanda Beauty',
+  description: t.meta.description,
+  url: esUrl,
+  image: og,
+  telephone: '+34622650202',
+  priceRange: '€€',
+  medicalSpecialty: 'Dermatology',
+  founder: { '@type': 'Person', name: 'Marina Kostanda', jobTitle: 'Médico estético' },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Carrer de Guillem de Castro, 8',
+    addressLocality: 'València',
+    postalCode: '46001',
+    addressRegion: 'Valencia',
+    addressCountry: 'ES',
+  },
+  geo: { '@type': 'GeoCoordinates', latitude: 39.4692, longitude: -0.3813 },
+  sameAs: [CONTACT.instagram],
+  availableLanguage: ['es', 'ru', 'uk'],
+};
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{t.meta.title}</title>
+    <meta name="description" content={t.meta.description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="es" href={esUrl} />
+    <link rel="alternate" hreflang="ru" href={ruUrl} />
+    <link rel="alternate" hreflang="x-default" href={esUrl} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#f1f6f8" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Kostanda Beauty" />
+    <meta property="og:title" content={t.meta.title} />
+    <meta property="og:description" content={t.meta.description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={og} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'ru_RU'} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,719 @@
+---
+import { Picture } from 'astro:assets';
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import { content, reviews, CONTACT, waLink, type Lang } from '../i18n/content';
+
+import marinaPortrait from '../assets/img/marina-portrait.jpg';
+import marinaObserv from '../assets/img/marina-observ.jpg';
+import marinaScrubs from '../assets/img/marina-scrubs.jpg';
+import marinaWindow from '../assets/img/marina-window.jpg';
+import marinaBoutique from '../assets/img/marina-boutique.jpg';
+import marinaShelves from '../assets/img/marina-shelves.jpg';
+import marinaNatural from '../assets/img/marina-natural.jpg';
+import procedureIpl from '../assets/img/procedure-ipl.jpg';
+import procedureTeam from '../assets/img/procedure-team.jpg';
+import procedureRf from '../assets/img/procedure-rf.jpg';
+import clinicRoom from '../assets/img/clinic-room.jpg';
+import teamWhite from '../assets/img/team-white.jpg';
+import teamEvent from '../assets/img/team-event.jpg';
+import products from '../assets/img/products.jpg';
+import lipsBefore from '../assets/img/ba-lips-before.jpg';
+import lipsAfter from '../assets/img/ba-lips-after.jpg';
+import skinBefore from '../assets/img/ba-skin-before.jpg';
+import skinAfter from '../assets/img/ba-skin-after.jpg';
+import pigmentBefore from '../assets/img/ba-pigment-before.jpg';
+import pigmentAfter from '../assets/img/ba-pigment-after.jpg';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = content[lang];
+
+const categoryImages: Record<string, any> = {
+  diagnostico: marinaObserv,
+  aparatologia: procedureIpl,
+  cuidados: procedureRf,
+  inyectables: marinaNatural,
+  tricologia: clinicRoom,
+  cuerpo: marinaShelves,
+};
+const categoryPos: Record<string, string> = {
+  diagnostico: '50% 85%',
+  aparatologia: '50% 30%',
+  cuidados: '50% 50%',
+  inyectables: '50% 30%',
+  tricologia: '30% 50%',
+  cuerpo: '50% 30%',
+};
+
+const cases = [
+  { ...t.results.cases[0], before: lipsBefore, after: lipsAfter },
+  { ...t.results.cases[1], before: skinBefore, after: skinAfter },
+  { ...t.results.cases[2], before: pigmentBefore, after: pigmentAfter },
+];
+
+const treatmentOptions = [t.contact.fTreatmentDefault, ...t.treatments.categories.flatMap((c) => c.items.map((i) => i.name))];
+const year = new Date().getFullYear();
+const waHello = waLink(t.waHello);
+---
+
+<a class="skip" href="#main">{lang === 'es' ? 'Saltar al contenido' : 'Перейти к содержанию'}</a>
+
+<!-- ============================================================ HEADER -->
+<header class="hdr" data-header>
+  <div class="wrap hdr__in">
+    <a href={lang === 'es' ? '/' : '/ru/'} class="hdr__logo" aria-label="Kostanda Beauty">
+      <Logo />
+    </a>
+    <nav class="hdr__nav" aria-label={lang === 'es' ? 'Principal' : 'Основное меню'}>
+      {t.nav.map((n) => <a href={n.href}>{n.label}</a>)}
+    </nav>
+    <div class="hdr__actions">
+      <a class="hdr__lang" href={t.langSwitch.href} hreflang={lang === 'es' ? 'ru' : 'es'} title={t.langSwitch.title}>
+        {t.langSwitch.label}
+      </a>
+      <a class="btn hdr__cta" href={waHello} target="_blank" rel="noopener">
+        <span>{t.book}</span>
+        <span class="btn__icon"><Icon name="whatsapp" size={20} /></span>
+      </a>
+      <button class="hdr__burger" type="button" aria-expanded="false" aria-controls="menu" data-menu-toggle>
+        <span class="visually-hidden">{t.menu}</span>
+        <span class="hdr__burger-line"></span>
+        <span class="hdr__burger-line"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="menu" id="menu" data-menu hidden>
+  <div class="menu__in wrap">
+    <nav class="menu__nav" aria-label={t.menu}>
+      {
+        t.nav.map((n, i) => (
+          <a href={n.href} style={`--i:${i}`} data-menu-link>
+            {n.label}
+          </a>
+        ))
+      }
+    </nav>
+    <div class="menu__foot">
+      <a class="btn" href={waHello} target="_blank" rel="noopener">
+        <span>{t.hero.primary}</span>
+        <span class="btn__icon"><Icon name="whatsapp" size={20} /></span>
+      </a>
+      <div class="menu__meta">
+        <a href={CONTACT.phoneHref}>{CONTACT.phoneDisplay}</a>
+        <a href={CONTACT.instagram} target="_blank" rel="noopener">{CONTACT.instagramHandle}</a>
+        <a href={t.langSwitch.href}>{t.langSwitch.title}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+  <!-- ============================================================ HERO -->
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <h1 class="hero__title">
+          {t.hero.title.map((line, i) => (
+            <span class="hero__line" style={`--i:${i}`}>
+              <span>{line}</span>
+            </span>
+          ))}
+        </h1>
+        <p class="lead hero__lead">{t.hero.lead}</p>
+        <div class="hero__ctas">
+          <a class="btn" href={waHello} target="_blank" rel="noopener">
+            <span>{t.hero.primary}</span>
+            <span class="btn__icon"><Icon name="whatsapp" size={20} /></span>
+          </a>
+          <a class="btn btn--ghost btn--has-icon" href={waLink(t.waOnline)} target="_blank" rel="noopener">
+            <span class="btn__icon"><Icon name="video" size={18} /></span>
+            <span>{t.hero.secondary}</span>
+          </a>
+        </div>
+      </div>
+
+      <figure class="hero__art" data-hero-art>
+        <div class="hero__lens hero__lens--photo lens">
+          <Picture
+            src={marinaPortrait}
+            alt={t.hero.caption}
+            widths={[420, 640, 900]}
+            sizes="(min-width: 1024px) 30vw, 60vw"
+            formats={['avif', 'webp']}
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+        <div class="hero__lens hero__lens--glass lens" aria-hidden="true"></div>
+        <div class="hero__petal hero__petal--a" aria-hidden="true"></div>
+        <div class="hero__petal hero__petal--b" aria-hidden="true"></div>
+        <figcaption class="hero__caption">{t.hero.caption}</figcaption>
+      </figure>
+    </div>
+
+    <div class="wrap">
+      <dl class="hero__facts">
+        {
+          t.hero.facts.map((f) => (
+            <div>
+              <dt>{f.k}</dt>
+              <dd>{f.v}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </section>
+
+  <!-- ============================================================ METHOD -->
+  <section class="section method" id="metodo">
+    <div class="wrap method__grid">
+      <div class="method__head">
+        <h2 class="h2" data-reveal>{t.method.title}</h2>
+        <p class="lead" data-reveal style="--d:.08s">{t.method.lead}</p>
+      </div>
+      <div class="method__media" data-reveal style="--d:.1s">
+        <Picture
+          src={procedureTeam}
+          alt=""
+          widths={[480, 720]}
+          sizes="(min-width: 1024px) 40vw, 100vw"
+          formats={['avif', 'webp']}
+        />
+      </div>
+      <ol class="method__steps">
+        {
+          t.method.steps.map((s, i) => (
+            <li class="method__step" data-reveal style={`--d:${0.1 + i * 0.1}s`}>
+              <span class="method__dot" aria-hidden="true" />
+              <h3>{s.t}</h3>
+              <p>{s.d}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============================================================ TREATMENTS -->
+  <section class="section tx" id="tratamientos">
+    <div class="wrap tx__grid">
+      <div class="tx__aside">
+        <div class="tx__sticky">
+          <h2 class="h2" data-reveal>{t.treatments.title}</h2>
+          <p class="lead" data-reveal style="--d:.08s">{t.treatments.lead}</p>
+          <div class="tx__concerns" data-reveal style="--d:.14s">
+            <p class="tx__concerns-label">{t.treatments.concernsLabel}</p>
+            <div class="chips">
+              {
+                t.treatments.concerns.map((c) => (
+                  <button type="button" class="chip" data-concern={c.target}>
+                    {c.label}
+                  </button>
+                ))
+              }
+            </div>
+          </div>
+          <div class="tx__visual" aria-hidden="true">
+            {
+              t.treatments.categories.map((c, i) => (
+                <div class:list={['tx__visual-item', i === 0 && 'is-active']} data-visual={c.id}>
+                  <Picture
+                    src={categoryImages[c.id]}
+                    alt=""
+                    widths={[420, 680]}
+                    sizes="(min-width: 1024px) 32vw, 1px"
+                    formats={['avif', 'webp']}
+                    style={`object-position:${categoryPos[c.id]}`}
+                  />
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="tx__list" data-accordion>
+        {
+          t.treatments.categories.map((c, i) => (
+            <div class:list={['acc', i === 0 && 'is-open']} id={`tx-${c.id}`} data-acc={c.id}>
+              <h3 class="acc__h">
+                <button type="button" class="acc__btn" aria-expanded={i === 0 ? 'true' : 'false'} aria-controls={`tx-panel-${c.id}`}>
+                  <span class="acc__title">{c.title}</span>
+                  <span class="acc__count num">{String(c.items.length).padStart(2, '0')}</span>
+                  <span class="acc__icon" aria-hidden="true">
+                    <Icon name="plus" size={22} />
+                  </span>
+                </button>
+              </h3>
+              <div class="acc__panel" id={`tx-panel-${c.id}`} role="region">
+                <div class="acc__inner">
+                  <p class="acc__lead">{c.lead}</p>
+                  <ul class="acc__items">
+                    {c.items.map((it) => (
+                      <li>
+                        <span class="acc__name">{it.name}</span>
+                        <span class="acc__note">{it.note}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    class="link"
+                    href={waLink(`${t.waHello} — ${c.title}`)}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    {t.treatments.ask}
+                    <Icon name="arrow" size={18} />
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ RESULTS -->
+  <section class="section results" id="resultados">
+    <div class="wrap">
+      <div class="results__head">
+        <h2 class="h2" data-reveal>{t.results.title}</h2>
+        <div class="results__tabs" role="tablist" aria-label={t.results.title} data-reveal style="--d:.08s">
+          {
+            cases.map((c, i) => (
+              <button
+                type="button"
+                role="tab"
+                class="tab"
+                id={`case-tab-${c.id}`}
+                aria-selected={i === 0 ? 'true' : 'false'}
+                aria-controls={`case-${c.id}`}
+                tabindex={i === 0 ? 0 : -1}
+                data-case-tab={c.id}
+              >
+                {c.label}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="results__stage" data-reveal style="--d:.12s">
+        {
+          cases.map((c, i) => (
+            <div
+              class="compare"
+              id={`case-${c.id}`}
+              role="tabpanel"
+              aria-labelledby={`case-tab-${c.id}`}
+              hidden={i !== 0}
+              data-compare
+              style="--pos:50%"
+            >
+              <div class="compare__img compare__img--after">
+                <Picture
+                  src={c.after}
+                  alt={`${c.label} — ${t.results.after}`}
+                  widths={[640, 1080, 1600]}
+                  sizes="(min-width: 1360px) 1320px, 100vw"
+                  formats={['avif', 'webp']}
+                />
+              </div>
+              <div class="compare__img compare__img--before">
+                <Picture
+                  src={c.before}
+                  alt={`${c.label} — ${t.results.before}`}
+                  widths={[640, 1080, 1600]}
+                  sizes="(min-width: 1360px) 1320px, 100vw"
+                  formats={['avif', 'webp']}
+                />
+              </div>
+              <span class="compare__tag compare__tag--before">{t.results.before}</span>
+              <span class="compare__tag compare__tag--after">{t.results.after}</span>
+              <div class="compare__handle" aria-hidden="true">
+                <span class="compare__knob">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 6l-6 6 6 6M15 6l6 6-6 6" />
+                  </svg>
+                </span>
+              </div>
+              <input class="compare__range" type="range" min="0" max="100" value="50" step="0.5" aria-label={`${t.results.drag}: ${c.label}`} />
+            </div>
+          ))
+        }
+      </div>
+      <p class="results__note">{t.results.note}</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ PRINCIPLES -->
+  <section class="section principles" id="principios">
+    <div class="principles__glow lens" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="principles__head">
+        <h2 class="h2" data-reveal>{t.principles.title}</h2>
+        <p class="lead" data-reveal style="--d:.08s">{t.principles.lead}</p>
+      </div>
+      <ol class="principles__list">
+        {
+          t.principles.items.map((p, i) => (
+            <li data-reveal style={`--d:${(i % 2) * 0.08}s`}>
+              <span class="principles__n num" aria-hidden="true">{i + 1}</span>
+              <div>
+                <h3>{p.t}</h3>
+                <p>{p.d}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============================================================ DOCTOR -->
+  <section class="section doctor" id="doctora">
+    <div class="wrap doctor__grid">
+      <div class="doctor__media">
+        <div class="doctor__lens lens" data-reveal>
+          <Picture
+            src={marinaScrubs}
+            alt={t.doctor.sign}
+            widths={[420, 640, 900]}
+            sizes="(min-width: 1024px) 28vw, 70vw"
+            formats={['avif', 'webp']}
+            style="object-position: 58% 30%"
+          />
+        </div>
+        <div class="doctor__small" data-reveal style="--d:.15s">
+          <Picture
+            src={marinaWindow}
+            alt=""
+            widths={[360, 600]}
+            sizes="(min-width: 1024px) 18vw, 45vw"
+            formats={['avif', 'webp']}
+          />
+        </div>
+      </div>
+      <div class="doctor__copy">
+        <h2 class="h2" data-reveal>{t.doctor.title}</h2>
+        <div class="doctor__body">
+          {t.doctor.body.map((p, i) => <p data-reveal style={`--d:${0.06 * i}s`}>{p}</p>)}
+        </div>
+        <blockquote class="doctor__quote" data-reveal>
+          <p>«{t.doctor.quote}»</p>
+          <footer>{t.doctor.sign}</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ TEAM -->
+  <section class="section team" id="equipo">
+    <div class="wrap team__grid">
+      <div class="team__copy">
+        <h2 class="h2" data-reveal>{t.team.title}</h2>
+        <p class="lead" data-reveal style="--d:.08s">{t.team.lead}</p>
+        <ul class="team__people">
+          {
+            t.team.people.map((p, i) => (
+              <li data-reveal style={`--d:${0.05 * i}s`}>
+                <span class="team__name">{p.n}</span>
+                <span class="team__role">{p.r}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="team__photos">
+        <div class="team__photo team__photo--a" data-reveal>
+          <Picture src={teamWhite} alt="Kostanda Beauty" widths={[480, 700]} sizes="(min-width: 1024px) 34vw, 90vw" formats={['avif', 'webp']} />
+        </div>
+        <div class="team__photo team__photo--b" data-reveal style="--d:.12s">
+          <Picture src={teamEvent} alt="" widths={[360, 600]} sizes="(min-width: 1024px) 20vw, 50vw" formats={['avif', 'webp']} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ EQUIPMENT & BRANDS -->
+  <section class="section craft" id="equipos">
+    <div class="wrap craft__grid">
+      <div class="craft__media" data-reveal>
+        <Picture src={clinicRoom} alt="Kostanda Beauty" widths={[600, 1000, 1400]} sizes="(min-width: 1024px) 50vw, 100vw" formats={['avif', 'webp']} />
+      </div>
+      <div class="craft__copy">
+        <h2 class="h2" data-reveal>{t.craft.title}</h2>
+        <ul class="craft__equip">
+          {t.craft.equipment.map((e) => <li>{e}</li>)}
+        </ul>
+        <p class="craft__shop">{t.craft.shop}</p>
+      </div>
+    </div>
+    <div class="marquee" aria-label={t.craft.brands.join(', ')}>
+      <div class="marquee__track" aria-hidden="true">
+        {
+          [0, 1].map(() => (
+            <div class="marquee__group">
+              {t.craft.brands.map((b) => (
+                <>
+                  <span class="marquee__item">{b}</span>
+                  <svg class="marquee__sep" viewBox="0 0 240 470">
+                    <path d="M120 0A290 290 0 0 0 120 470A290 290 0 0 0 120 0Z" />
+                  </svg>
+                </>
+              ))}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ PERKS -->
+  <section class="section perks" id="ventajas">
+    <div class="wrap">
+      <div class="perks__head">
+        <h2 class="h2" data-reveal>{t.perks.title}</h2>
+        <p class="lead" data-reveal style="--d:.08s">{t.perks.lead}</p>
+      </div>
+      <div class="perks__packs">
+        {
+          t.perks.packs.map((p, i) => (
+            <div class="pack" data-reveal style={`--d:${i * 0.08}s`}>
+              <p class="pack__t">{p.t}</p>
+              <p class="pack__d">{p.d}</p>
+              <p class="pack__price num">
+                {p.price}
+                {p.old && <s class="pack__old">{p.old}</s>}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+      <ul class="perks__list">
+        {
+          t.perks.list.map((p, i) => (
+            <li data-reveal style={`--d:${(i % 2) * 0.08}s`}>
+              <svg class="perks__mark" viewBox="100 120 730 480" aria-hidden="true">
+                <path d="M222 125A290 290 0 0 0 222 595A290 290 0 0 0 222 125Z" />
+                <path d="M382 125A290 290 0 0 0 382 595A290 290 0 0 0 382 125Z" />
+              </svg>
+              <div>
+                <h3>{p.t}</h3>
+                <p>{p.d}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================ DETAILS -->
+  <section class="details">
+    <div class="wrap details__grid">
+      <div class="details__media" data-reveal>
+        <Picture src={marinaBoutique} alt="" widths={[420, 700]} sizes="(min-width: 1024px) 30vw, 90vw" formats={['avif', 'webp']} />
+      </div>
+      <div class="details__copy">
+        <h2 class="h2" data-reveal>{t.details.title}</h2>
+        <dl class="details__list">
+          {
+            t.details.items.map((d, i) => (
+              <div data-reveal style={`--d:${i * 0.06}s`}>
+                <dt>{d.t}</dt>
+                <dd>{d.d}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ REVIEWS -->
+  <section class="section reviews" id="opiniones">
+    <div class="wrap">
+      <div class="reviews__head">
+        <h2 class="h2" data-reveal>{t.reviews.title}</h2>
+        <p class="lead" data-reveal style="--d:.08s">{t.reviews.lead}</p>
+      </div>
+      <div class="reviews__grid">
+        {
+          reviews.map((r, i) => (
+            <figure class="review" data-reveal style={`--d:${(i % 3) * 0.07}s`}>
+              <div class="review__stars" aria-label="5/5">
+                {[0, 1, 2, 3, 4].map(() => (
+                  <Icon name="star" size={14} />
+                ))}
+              </div>
+              <blockquote>
+                <p>{r.text}</p>
+              </blockquote>
+              <figcaption>{r.name} · Google</figcaption>
+            </figure>
+          ))
+        }
+      </div>
+      <a class="link reviews__more" href={CONTACT.maps} target="_blank" rel="noopener">
+        {t.reviews.more}
+        <Icon name="arrowUpRight" size={18} />
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================================ FAQ -->
+  <section class="section faq" id="preguntas">
+    <div class="wrap faq__grid">
+      <h2 class="h2" data-reveal>{t.faq.title}</h2>
+      <div class="faq__list">
+        {
+          t.faq.items.map((f) => (
+            <details class="faq__item">
+              <summary>
+                <span>{f.q}</span>
+                <span class="faq__icon" aria-hidden="true">
+                  <Icon name="plus" size={20} />
+                </span>
+              </summary>
+              <p>{f.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ CONTACT -->
+  <section class="section contact" id="contacto">
+    <div class="wrap">
+      <div class="contact__head">
+        <h2 class="h2" data-reveal>{t.contact.title}</h2>
+        <p class="lead" data-reveal style="--d:.08s">{t.contact.lead}</p>
+      </div>
+      <div class="contact__grid">
+        <div class="contact__info">
+          <dl class="contact__dl">
+            <div>
+              <dt><Icon name="pin" size={18} />{t.contact.address}</dt>
+              <dd>
+                {CONTACT.street}
+                <br />
+                {CONTACT.district}
+              </dd>
+            </div>
+            <div>
+              <dt><Icon name="phone" size={18} />{t.contact.phone}</dt>
+              <dd>
+                <a href={CONTACT.phoneHref} class="num">{CONTACT.phoneDisplay}</a>
+              </dd>
+            </div>
+            <div>
+              <dt><Icon name="clock" size={18} />{t.contact.hours}</dt>
+              <dd>{t.contact.hoursValue}</dd>
+            </div>
+            <div>
+              <dt><Icon name="instagram" size={18} />Instagram</dt>
+              <dd>
+                <a href={CONTACT.instagram} target="_blank" rel="noopener">{CONTACT.instagramHandle}</a>
+              </dd>
+            </div>
+          </dl>
+          <div class="contact__map">
+            <iframe
+              title="Kostanda Beauty — Google Maps"
+              src={CONTACT.mapsEmbed}
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <a class="link" href={CONTACT.maps} target="_blank" rel="noopener">
+            {t.contact.route}
+            <Icon name="arrowUpRight" size={18} />
+          </a>
+        </div>
+
+        <form
+          class="book"
+          data-book
+          data-wa={CONTACT.whatsapp}
+          data-tpl={t.contact.msg('{name}', '{t}', '{when}')}
+          data-tpl-short={t.contact.msg('{name}', '{t}', '')}
+        >
+          <h3 class="book__title">{t.contact.formTitle}</h3>
+          <p class="book__lead">{t.contact.formLead}</p>
+          <label class="field">
+            <span>{t.contact.fName}</span>
+            <input type="text" name="name" autocomplete="given-name" required maxlength="60" />
+          </label>
+          <label class="field">
+            <span>{t.contact.fTreatment}</span>
+            <select name="treatment">
+              {treatmentOptions.map((o) => <option value={o}>{o}</option>)}
+            </select>
+          </label>
+          <label class="field">
+            <span>{t.contact.fWhen}</span>
+            <input type="text" name="when" placeholder={t.contact.fWhenPh} maxlength="80" />
+          </label>
+          <button class="btn book__send" type="submit">
+            <span>{t.contact.send}</span>
+            <span class="btn__icon"><Icon name="whatsapp" size={20} /></span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============================================================ FOOTER -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__top">
+      <Logo tone="light" />
+      <p class="ftr__tag">{t.footer.tagline}</p>
+    </div>
+    <div class="ftr__cols">
+      <nav aria-label="Footer">
+        {t.nav.map((n) => <a href={n.href}>{n.label}</a>)}
+      </nav>
+      <div>
+        <p>{CONTACT.street}</p>
+        <p>{CONTACT.district}</p>
+        <p><a href={CONTACT.phoneHref} class="num">{CONTACT.phoneDisplay}</a></p>
+      </div>
+      <div>
+        <p><a href={CONTACT.instagram} target="_blank" rel="noopener">Instagram {CONTACT.instagramHandle}</a></p>
+        <p><a href={waHello} target="_blank" rel="noopener">WhatsApp</a></p>
+        <p><a href={t.langSwitch.href}>{t.langSwitch.title}</a></p>
+      </div>
+    </div>
+    <div class="ftr__bottom">
+      <p>{t.footer.registry}</p>
+      <p>© {year} Kostanda Beauty. {t.footer.rights}</p>
+    </div>
+  </div>
+</footer>
+
+<!-- mobile sticky booking bar -->
+<div class="dock" data-dock>
+  <a class="btn dock__wa" href={waHello} target="_blank" rel="noopener">
+    <span>{t.book}</span>
+    <span class="btn__icon"><Icon name="whatsapp" size={20} /></span>
+  </a>
+  <a class="dock__call" href={CONTACT.phoneHref} aria-label={t.contact.phone}>
+    <Icon name="phone" size={22} />
+  </a>
+</div>
+
+<script>
+  import { initSite } from '../scripts/site';
+  initSite();
+</script>
