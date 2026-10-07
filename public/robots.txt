@@ -1,4 +1,2 @@
 User-agent: *
-Allow: /
-
-Sitemap: https://kostanda.beauty/sitemap-index.xml
+Disallow: /
