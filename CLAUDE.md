@@ -11,6 +11,8 @@
 - `tools/build.py` — шаблон `tools/template.html` + тексты `tools/content/{es,ru,en}.json` → `site/index.html`, `site/ru/index.html`, `site/en/index.html`. После правки текстов — `python3 tools/build.py`, результат коммитится.
 - Фото: `tools/images.py` готовит webp-варианты в `site/assets/img/` из исходников в `materials/`.
 - Цены и привилегии — в `tools/content/*.json` (`perks`); по умолчанию «по консультации».
+- Схема вышивки hero: `tools/stitch.py` → `site/assets/stitch.json` + `hero-portrait-*.webp`.
+- Деплой: `vercel deploy --prod --yes --token "$VERCEL_TOKEN"` из корня; `.vercelignore` отправляет только `site/` и `vercel.json` (без `materials/`, иначе загрузка падает). У проекта productionBranch `main`, которой нет, поэтому прод выкатывается только через CLI.
 
 ## Ключевые факты
 - Клиника медицинской косметологии / эстетической медицины. Kostanda Beauty SL. Медцентр Nº registro 45856.
