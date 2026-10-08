@@ -149,7 +149,7 @@
   <div class="wrap">
     <h2 class="h2 h2--sm" id="process-title">Cómo trabajamos</h2>
     <ol class="thread" data-reveal>
-      <svg class="thread__line" aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 100 2"><line x1="0" y1="1" x2="100" y2="1" pathLength="1"/></svg>
+      <span class="thread__line" aria-hidden="true"></span>
       <li class="thread__step" style="--i: 0">
         <svg class="thread__x" aria-hidden="true"><use href="#i-stitch"/></svg>
         <h3>Diagnóstico</h3>
@@ -528,17 +528,9 @@
 
 <section class="book" id="reservar" aria-labelledby="book-title">
   <div class="wrap book__in">
-    <div class="book__info">
+    <div class="book__head">
       <h2 class="h2" id="book-title">Escríbenos y te proponemos día y hora</h2>
       <p class="lead">Rellena tres datos y se abrirá WhatsApp con el mensaje listo. No guardamos nada en esta web.</p>
-      <dl class="contact">
-        <div><dt><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Dirección</dt><dd>C/ de Guillem de Castro, 8<br>46001 València · Ciutat Vella<br><a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=Kostanda+Beauty+Carrer+de+Guillem+de+Castro+8+46001+Valencia" target="_blank" rel="noopener">Cómo llegar<svg class="icon" aria-hidden="true"><use href="#i-out"/></svg></a></dd></div>
-        <div><dt><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Horario</dt><dd>Desde las 10:00, con cita previa</dd></div>
-        <div><dt><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Teléfono y WhatsApp</dt><dd><a href="tel:+34622650202">+34 622 65 02 02</a></dd></div>
-        <div><dt><svg class="icon" aria-hidden="true"><use href="#i-ig"/></svg>Instagram</dt><dd><a href="https://www.instagram.com/kostanda.beauty/" target="_blank" rel="noopener">@kostanda.beauty</a></dd></div>
-      </dl>
-      <ul class="details">
-<li><strong>Matcha al llegar</strong> y los caramelos «Korovka» que nuestras pacientes ya conocen.</li><li><strong>Sala infantil</strong> para que puedas venir con tus hijos.</li><li><strong>Esterilidad</strong> material desechable y protocolos clínicos en cada cabina.</li><li><strong>En pleno centro</strong> a 5 minutos de la Plaza del Ayuntamiento.</li>      </ul>
     </div>
     <form class="form" data-book novalidate>
       <label class="field"><span>Tu nombre</span><input name="name" type="text" autocomplete="given-name" placeholder="Por ejemplo, Lucía"></label>
@@ -557,6 +549,16 @@
       <p class="form__preview" aria-live="polite" data-preview></p>
       <button class="btn btn--light btn--wide" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg><span>Abrir WhatsApp</span></button>
     </form>
+    <div class="book__info">
+      <dl class="contact">
+        <div><dt><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Dirección</dt><dd>C/ de Guillem de Castro, 8<br>46001 València · Ciutat Vella<br><a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=Kostanda+Beauty+Carrer+de+Guillem+de+Castro+8+46001+Valencia" target="_blank" rel="noopener">Cómo llegar<svg class="icon" aria-hidden="true"><use href="#i-out"/></svg></a></dd></div>
+        <div><dt><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Horario</dt><dd>Desde las 10:00, con cita previa</dd></div>
+        <div><dt><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Teléfono y WhatsApp</dt><dd><a href="tel:+34622650202">+34 622 65 02 02</a></dd></div>
+        <div><dt><svg class="icon" aria-hidden="true"><use href="#i-ig"/></svg>Instagram</dt><dd><a href="https://www.instagram.com/kostanda.beauty/" target="_blank" rel="noopener">@kostanda.beauty</a></dd></div>
+      </dl>
+      <ul class="details">
+<li><strong>Matcha al llegar</strong> y los caramelos «Korovka» que nuestras pacientes ya conocen.</li><li><strong>Sala infantil</strong> para que puedas venir con tus hijos.</li><li><strong>Esterilidad</strong> material desechable y protocolos clínicos en cada cabina.</li><li><strong>En pleno centro</strong> a 5 minutos de la Plaza del Ayuntamiento.</li>      </ul>
+    </div>
   </div>
 </section>
 

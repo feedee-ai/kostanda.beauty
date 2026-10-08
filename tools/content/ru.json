@@ -1,574 +1,227 @@
 {
   "meta": {
-    "lang": "es",
-    "locale": "es_ES",
-    "title": "Kostanda Beauty · Clínica de medicina estética en el centro de Valencia",
-    "description": "Clínica médica de la Dra. Marina Kostanda en Guillem de Castro, 8. Primero diagnóstico con Observ 520x y ecografía facial, después un plan por escrito. IPL Candela, Frax 1550, Volnewmer, inyectables y Biologique Recherche. Atendemos en español, ruso y ucraniano."
+    "lang": "ru",
+    "locale": "ru_RU",
+    "title": "Kostanda Beauty · Клиника эстетической медицины в центре Валенсии",
+    "description": "Медицинская клиника доктора Марины Костанды на Guillem de Castro, 8. Сначала диагностика на Observ 520x и УЗИ лица, потом план в письменном виде. IPL Candela, Frax 1550, Volnewmer, инъекции и Biologique Recherche. Говорим по-русски, по-украински и по-испански."
   },
-  "skip": "Saltar al contenido",
+  "skip": "Перейти к содержанию",
   "nav": {
     "items": [
-      {
-        "href": "#diagnostico",
-        "label": "Diagnóstico"
-      },
-      {
-        "href": "#resultados",
-        "label": "Resultados"
-      },
-      {
-        "href": "#marina",
-        "label": "La doctora"
-      },
-      {
-        "href": "#tratamientos",
-        "label": "Tratamientos"
-      },
-      {
-        "href": "#opiniones",
-        "label": "Opiniones"
-      },
-      {
-        "href": "#reservar",
-        "label": "Contacto"
-      }
+      {"href": "#diagnostico", "label": "Диагностика"},
+      {"href": "#resultados", "label": "Результаты"},
+      {"href": "#marina", "label": "О докторе"},
+      {"href": "#tratamientos", "label": "Процедуры"},
+      {"href": "#opiniones", "label": "Отзывы"},
+      {"href": "#reservar", "label": "Контакты"}
     ],
-    "book": "Reservar",
-    "menu": "Menú",
-    "close": "Cerrar",
-    "home": "Kostanda Beauty, inicio"
+    "book": "Записаться",
+    "menu": "Меню",
+    "close": "Закрыть",
+    "home": "Kostanda Beauty, главная"
   },
   "hero": {
-    "title": [
-      "Primero, el patrón.",
-      "Después, la aguja."
-    ],
-    "lead": "Soy la Dra. Marina Kostanda. En mi clínica del centro de Valencia nada empieza sin diagnóstico: escáner Observ 520x, ecografía facial si hace falta y un plan por escrito. Y si tu piel no necesita nada, te lo diré.",
-    "cta": "Reservar diagnóstico",
-    "cta2": "Consulta online gratis",
-    "proof": [
-      "Centro sanitario Nº 45856",
-      "Más de 1000 pacientes",
-      "Español · Русский · Українська"
-    ],
-    "toggle_pattern": "Ver el patrón",
-    "toggle_photo": "Ver la foto",
-    "caption": "Dra. Marina Kostanda, fundadora y médica",
-    "chart_label": "Patrón de punto de cruz generado a partir de la foto"
+    "title": ["Сначала — схема.", "Потом — игла."],
+    "lead": "Я — доктор Марина Костанда. В моей клинике в центре Валенсии ничего не начинается без диагностики: сканер Observ 520x, УЗИ лица, если нужно, и план в письменном виде. А если вашей коже ничего не нужно, я так и скажу.",
+    "cta": "Записаться на диагностику",
+    "cta2": "Бесплатная онлайн-консультация",
+    "proof": ["Медицинский центр № 45856", "Более 1000 пациентов", "Русский · Українська · Español"],
+    "toggle_pattern": "Показать схему",
+    "toggle_photo": "Показать фото",
+    "caption": "Доктор Марина Костанда, основательница и врач",
+    "chart_label": "Схема вышивки крестиком, построенная по фотографии"
   },
   "scan": {
-    "title": "Tu espejo no ve lo que ve el escáner",
-    "lead": "Rojeces, pigmento que todavía no ha salido a la superficie, bacterias en los poros, vasos dilatados. El Observ 520x fotografía la piel con distintas luces y nos enseña las capas que no se ven a simple vista. Con eso decidimos qué hacer y, sobre todo, qué no.",
+    "title": "Зеркало не видит того, что видит сканер",
+    "lead": "Покраснения, пигмент, который ещё не вышел на поверхность, бактерии в порах, расширенные сосуды. Observ 520x снимает кожу в разном свете и показывает слои, которых не видно глазом. По этим снимкам мы решаем, что делать и, главное, чего не делать.",
     "frames": [
-      {
-        "img": "scan-daylight",
-        "label": "Luz natural",
-        "note": "Lo que ves en el espejo"
-      },
-      {
-        "img": "scan-uv",
-        "label": "Luz UV · Observ 520x",
-        "note": "Antes del tratamiento"
-      },
-      {
-        "img": "scan-uv-after",
-        "label": "Luz UV · Observ 520x",
-        "note": "Después del protocolo"
-      }
+      {"img": "scan-daylight", "label": "Дневной свет", "note": "То, что вы видите в зеркале"},
+      {"img": "scan-uv", "label": "UV-свет · Observ 520x", "note": "До лечения"},
+      {"img": "scan-uv-after", "label": "UV-свет · Observ 520x", "note": "После протокола"}
     ],
-    "case": "Paciente con rosácea y dermatitis perioral. Tras el diagnóstico armamos un protocolo personal: menos vasos visibles, menos inflamación y la barrera de la piel recuperada.",
+    "case": "Пациентка с розацеа и периоральным дерматитом. После диагностики составили индивидуальный протокол: сосудов видно меньше, воспалений меньше, защитный барьер кожи восстановлен.",
     "points": [
-      {
-        "t": "40 minutos",
-        "d": "Escáner, conversación con la médica y respuestas a todas tus preguntas."
-      },
-      {
-        "t": "Ecografía facial",
-        "d": "Si te pusieron rellenos antes, vemos si queda producto, dónde y a qué profundidad."
-      },
-      {
-        "t": "Plan por escrito",
-        "d": "Qué hacer en cabina, qué usar en casa y en qué orden. La decisión es tuya."
-      }
+      {"t": "40 минут", "d": "Сканер, разговор с врачом и ответы на все ваши вопросы."},
+      {"t": "УЗИ лица", "d": "Если раньше вводили филлеры, смотрим, остался ли препарат, где и на какой глубине."},
+      {"t": "План на бумаге", "d": "Что делать в кабинете, чем ухаживать дома и в каком порядке. Решение за вами."}
     ]
   },
   "process": {
-    "title": "Cómo trabajamos",
+    "title": "Как мы работаем",
     "steps": [
-      {
-        "t": "Diagnóstico",
-        "d": "Observ 520x, ecografía o tricoscopia, según lo que te preocupe."
-      },
-      {
-        "t": "Plan",
-        "d": "Combinamos aparatología, cuidados e inyectables solo si tienen sentido para tu caso."
-      },
-      {
-        "t": "Tratamiento",
-        "d": "Te explicamos cada paso antes de empezar. Equipos certificados, material desechable."
-      },
-      {
-        "t": "Seguimiento",
-        "d": "Revisamos la evolución sesión a sesión y ajustamos el cuidado en casa."
-      }
+      {"t": "Диагностика", "d": "Observ 520x, УЗИ или трихоскопия — по вашему запросу."},
+      {"t": "План", "d": "Сочетаем аппараты, уходы и инъекции, только если это имеет смысл в вашем случае."},
+      {"t": "Процедура", "d": "Объясняем каждый шаг до начала. Сертифицированное оборудование, одноразовые материалы."},
+      {"t": "Сопровождение", "d": "Следим за результатом от процедуры к процедуре и корректируем домашний уход."}
     ]
   },
   "results": {
-    "title": "Resultados de nuestras pacientes",
-    "lead": "Desliza para comparar. Cada pareja está alineada para que veas solo lo que ha cambiado.",
-    "before": "Antes",
-    "after": "Después",
-    "drag": "Comparar antes y después",
+    "title": "Результаты наших пациентов",
+    "lead": "Потяните ползунок. Каждая пара совмещена, чтобы было видно только то, что изменилось.",
+    "before": "До",
+    "after": "После",
+    "drag": "Сравнить до и после",
     "cases": [
-      {
-        "id": "lips",
-        "label": "Labios",
-        "note": "Ácido hialurónico, volumen natural"
-      },
-      {
-        "id": "pigment",
-        "label": "Pigmentación",
-        "note": "Manchas y pecas"
-      },
-      {
-        "id": "redness",
-        "label": "Rojeces",
-        "note": "Tono y vasos"
-      },
-      {
-        "id": "acne",
-        "label": "Acné",
-        "note": "Inflamación activa"
-      },
-      {
-        "id": "body",
-        "label": "Abdomen",
-        "note": "Calidad de la piel tras el embarazo"
-      }
+      {"id": "lips", "label": "Губы", "note": "Гиалуроновая кислота, естественный объём"},
+      {"id": "pigment", "label": "Пигментация", "note": "Пятна и веснушки"},
+      {"id": "redness", "label": "Покраснения", "note": "Тон и сосуды"},
+      {"id": "acne", "label": "Акне", "note": "Активные воспаления"},
+      {"id": "body", "label": "Живот", "note": "Качество кожи после беременности"}
     ],
-    "story": "Una paciente llegó después de 12 sesiones de IPL en otro centro, sin resultado. Empezamos de cero: diagnóstico, dos sesiones con Candela Nordlys y cuidado en casa con Medik8.",
-    "note": "Fotos reales de pacientes de Kostanda Beauty. Cada piel responde de forma distinta: el resultado depende del diagnóstico y del protocolo."
+    "story": "Пациентка пришла после 12 сеансов IPL в другом салоне — без результата. Начали с нуля: диагностика, два сеанса на Candela Nordlys и домашний уход Medik8.",
+    "note": "Реальные фото пациентов Kostanda Beauty. Каждая кожа реагирует по-своему: результат зависит от диагностики и протокола."
   },
   "rules": {
-    "title": "Mis reglas",
-    "lead": "Las escribí para mis pacientes y las cumplo en cada consulta.",
+    "title": "Мои принципы",
+    "lead": "Я написала их для своих пациентов и соблюдаю на каждой консультации.",
     "items": [
-      {
-        "t": "Nunca impongo",
-        "d": "Mi tarea es recomendar con honestidad y profesionalidad. La decisión siempre es tuya."
-      },
-      {
-        "t": "No compito con precios bajos",
-        "d": "Valoro mi experiencia, mi equipo y la calidad. A una cosmetóloga no se acude por un descuento, sino por resultados y confianza."
-      },
-      {
-        "t": "No intento atraer a pacientes de otros especialistas",
-        "d": "Cada persona elige a su médico por la conexión, la visión de la belleza y las cualidades humanas."
-      },
-      {
-        "t": "No comento las recomendaciones de otros médicos",
-        "d": "En mi consulta hablo solo de ti y de mi trabajo."
-      },
-      {
-        "t": "Solo las mejores formaciones",
-        "d": "No ahorro en conocimiento. Invierto en calidad, seguridad y nuevas posibilidades para mis pacientes."
-      },
-      {
-        "t": "La tecnología no es para verse bien en Instagram",
-        "d": "Es para ofrecer seguridad, eficacia y las mejores soluciones a cada paciente."
-      },
-      {
-        "t": "Siempre soy sincera",
-        "d": "No intento agradarte. Es normal que no te guste lo que digo: ser médica estética no es «hacer un tratamiento», es guiarte hacia un cuidado consciente y real."
-      }
+      {"t": "Я никогда не навязываю", "d": "Часто говорю: «Ваше лицо — ваше решение». Моя задача — честно и профессионально рекомендовать. Решение всегда остаётся за вами."},
+      {"t": "Я не демпингую", "d": "Потому что ценю себя, свой опыт, свою команду и качество. К косметологу приходят не за скидкой, а за результатом и доверием."},
+      {"t": "Я не переманиваю пациентов", "d": "Это не моя философия. Каждый выбирает косметолога по ощущениям, взгляду на красоту и человеческим качествам."},
+      {"t": "Я не обсуждаю назначения других врачей", "d": "В моём кабинете я говорю только о вас и своей работе. Чужие решения — не моя территория."},
+      {"t": "Только лучшие обучения", "d": "Не экономлю на знаниях и не торгуюсь. Я инвестирую в качество, безопасность и новые возможности для своих пациентов."},
+      {"t": "Современные технологии — не для красоты в Инстаграме", "d": "А для безопасности, эффективности и лучших решений для пациентов."},
+      {"t": "Я всегда честна", "d": "И я не пытаюсь вам понравиться. Нормально, если вам может не понравиться то, что я говорю. Косметолог — это не просто «сделать процедуру», а быть проводником в адекватный, реальный и грамотный уход."}
     ],
-    "closing": "A veces elegir a un esposo es más fácil que elegir a tu cosmetóloga. ¿Quieres saber si coincidimos? Ven a una consulta.",
-    "sign": "Dra. Marina Kostanda"
+    "closing": "Иногда выбрать мужа проще, чем своего косметолога. Хотите понять, совпадём ли мы во взглядах? Приходите на консультацию.",
+    "sign": "Доктор Марина Костанда"
   },
   "story": {
-    "title": "Volver a ser médica",
-    "lead": "Llegué a España siendo endocrinóloga y sin hablar español. Para volver a ejercer tuve que empezar casi de cero.",
+    "title": "Снова стать врачом",
+    "lead": "Я приехала в Испанию эндокринологом и не знала испанского. Чтобы снова лечить, пришлось начинать почти с нуля.",
     "steps": [
-      {
-        "when": "Járkov",
-        "t": "Endocrinóloga",
-        "d": "Soñaba con trabajar en el hospital regional de Járkov. Lo conseguí. Pero lo que siempre me atrajo fue la piel."
-      },
-      {
-        "when": "Valencia",
-        "t": "Un idioma nuevo",
-        "d": "Ayer eras médica y hoy, en un país nuevo, formalmente ya no lo eres. Clases cuatro veces por semana, sin pausas."
-      },
-      {
-        "when": "DELE",
-        "t": "Aprobado",
-        "d": "No basta con memorizar respuestas: hay que entender, escribir y hablar con soltura. Después de meses de preparación, «APTO».",
-        "img": "marina-dele"
-      },
-      {
-        "when": "Colegiación",
-        "t": "Mi número de médica en España",
-        "d": "Diplomas, traducciones, apostillas, meses de espera. Esos números significaban algo más que un registro: puedo volver a trabajar como médica.",
-        "img": "marina-licence"
-      },
-      {
-        "when": "Hoy",
-        "t": "Médica en España, con clínica propia",
-        "d": "Kostanda Beauty abrió en noviembre de 2024 en Guillem de Castro, 8. Sigo formándome en congresos internacionales como IMCAS en París.",
-        "img": "marina-imcas"
-      }
+      {"when": "Харьков", "t": "Эндокринолог", "d": "Когда-то я мечтала работать эндокринологом в областной больнице Харькова — и работала. Но по-настоящему меня всегда тянуло к коже."},
+      {"when": "Валенсия", "t": "Новый язык", "d": "Вчера ты была врачом, а сегодня в новой стране формально больше не врач. Репетитор четыре раза в неделю, почти без перерывов."},
+      {"when": "DELE", "t": "Сдано", "d": "Это не экзамен, где достаточно выучить правильные ответы: нужно понимать, писать и свободно говорить. После всей подготовки — «APTO»."},
+      {"when": "Колегиата", "t": "Мой номер врача в Испании", "d": "Дипломы, переводы, апостили, месяцы ожидания. Эти цифры значили гораздо больше, чем регистрационный номер: я снова могу работать врачом."},
+      {"when": "Сегодня", "t": "Врач в Испании и своя клиника", "d": "Kostanda Beauty открылась в ноябре 2024 года на Guillem de Castro, 8. Я продолжаю учиться на международных конгрессах, включая IMCAS в Париже."}
     ],
-    "quote": "Hoy vuelvo a ser médica. Y no me he parado: sigo estudiando y eso es lo que llevo a cada consulta.",
-    "sign": "Marina"
+    "quote": "Сегодня я снова врач. И даже получив это право, не остановилась: продолжаю учиться — это то, что я приношу на каждый приём.",
+    "sign": "Марина"
   },
   "team": {
-    "title": "Tu cara, en manos de médicas",
-    "lead": "Un equipo que te explica cada paso antes de empezar, trabaja con protocolos médicos y se forma junto: en Madrid, en París, en cada aparato nuevo antes de usarlo con pacientes.",
+    "title": "Ваше лицо — в руках врачей",
+    "lead": "Команда, которая объясняет каждый шаг до начала процедуры, работает по медицинским протоколам и учится вместе: в Мадриде, в Париже, на каждом новом аппарате до первой процедуры с пациентом.",
     "members": [
-      {
-        "n": "Dra. Marina Kostanda",
-        "r": "Fundadora · medicina estética",
-        "d": "Diagnóstico, inyectables, aparatología y planes de tratamiento."
-      },
-      {
-        "n": "Dra. Michelle",
-        "r": "Médica estética",
-        "d": "Más de 10 años de experiencia. Máster en Estética por la Universidad Complutense de Madrid y por CEU Valencia, máster en Nutrición."
-      }
+      {"n": "Доктор Марина Костанда", "r": "Основательница · эстетическая медицина", "d": "Диагностика, инъекции, аппаратная косметология и планы лечения."},
+      {"n": "Доктор Мишель", "r": "Врач эстетической медицины", "d": "Более 10 лет опыта. Магистратура по эстетике в Мадридском университете Комплутенсе и CEU Valencia, магистратура по нутрициологии."}
     ],
-    "photo_caption": "El equipo de Kostanda Beauty"
+    "photo_caption": "Команда Kostanda Beauty"
   },
   "concerns": {
-    "title": "¿Qué te preocupa?",
-    "lead": "No hace falta saber cómo se llama el tratamiento. Elige lo que ves en el espejo y te contamos por dónde empezamos.",
-    "look_first": "Primero miramos",
-    "work_with": "Con qué podemos trabajar",
-    "ask": "Escribir sobre esto",
+    "title": "Что вас беспокоит?",
+    "lead": "Не нужно знать, как называется процедура. Выберите то, что видите в зеркале, — расскажем, с чего начнём.",
+    "look_first": "Сначала смотрим",
+    "work_with": "С чем можем работать",
+    "ask": "Написать об этом",
     "items": [
-      {
-        "id": "acne",
-        "label": "Acné y marcas",
-        "img": "ba-acne-after",
-        "first": "Observ 520x: inflamación, poros y bacterias en la superficie.",
-        "work": [
-          "Peelings BioRePeel y químicos",
-          "Limpieza facial profunda y suave",
-          "IPL Candela Nordlys",
-          "Frax 1550 para marcas y cicatrices",
-          "Tratamiento médico con receta, si hace falta"
-        ]
-      },
-      {
-        "id": "redness",
-        "label": "Rojeces y rosácea",
-        "img": "scan-daylight",
-        "first": "Observ 520x: vasos, reactividad y estado de la barrera.",
-        "work": [
-          "IPL Candela Nordlys",
-          "DermaLux LED",
-          "Cuidado en casa para recuperar la barrera"
-        ]
-      },
-      {
-        "id": "pigment",
-        "label": "Manchas y melasma",
-        "img": "ba-pigment-after",
-        "first": "Luz UV del Observ: pigmento superficial y profundo.",
-        "work": [
-          "IPL Candela Nordlys",
-          "Cyspera y cuidado despigmentante",
-          "Peelings",
-          "Plan de SPF para tu piel"
-        ]
-      },
-      {
-        "id": "laxity",
-        "label": "Flacidez y óvalo",
-        "img": "device-volnewmer",
-        "first": "Diagnóstico de la calidad y densidad de la piel.",
-        "work": [
-          "Volnewmer: RF monopolar 6,78 MHz",
-          "Secret RF con microagujas",
-          "Polinucleótidos y biorrevitalización",
-          "Exosomas"
-        ]
-      },
-      {
-        "id": "texture",
-        "label": "Poros y textura",
-        "img": "tx-aparatologia",
-        "first": "Observ 520x: textura, poros y fotoenvejecimiento.",
-        "work": [
-          "Láser Candela Frax 1550",
-          "Secret RF",
-          "Exosomas + PDRN",
-          "iS Clinical Fire & Ice"
-        ]
-      },
-      {
-        "id": "lips",
-        "label": "Labios y armonización",
-        "img": "tx-inyectables",
-        "first": "Si ya tienes relleno, ecografía antes de añadir nada.",
-        "work": [
-          "Ácido hialurónico con resultado natural",
-          "Armonización: mentón, mandíbula, pómulos",
-          "Toxina botulínica"
-        ]
-      },
-      {
-        "id": "fillers",
-        "label": "Rellenos antiguos",
-        "img": "tx-diagnostico",
-        "first": "Ecografía facial de alta frecuencia: dónde está el producto y si se ha desplazado.",
-        "work": [
-          "Hialuronidasa localizada, con control ecográfico",
-          "Restaurar el tejido en vez de añadir volumen"
-        ]
-      },
-      {
-        "id": "hair",
-        "label": "Caída del cabello",
-        "img": "tx-tricologia",
-        "first": "Trichoscan: cuero cabelludo y folículos, para encontrar la causa.",
-        "work": [
-          "Mesoterapia capilar",
-          "Plasma",
-          "Terapia LED",
-          "Tratamiento interno y externo pautado"
-        ]
-      },
-      {
-        "id": "body",
-        "label": "Abdomen y estrías",
-        "img": "ba-body-after",
-        "first": "Valoración de la piel tras el embarazo o un cambio de peso.",
-        "work": [
-          "Frax 1550 corporal",
-          "RF",
-          "Drenaje linfático y masaje modelador",
-          "Tratamientos corporales Biologique Recherche"
-        ]
-      },
-      {
-        "id": "glow",
-        "label": "Quiero que mi piel brille",
-        "img": "marina-boutique",
-        "first": "Diagnóstico para elegir el protocolo de cabina adecuado.",
-        "work": [
-          "Biologique Recherche: Biosensible, Lait VIP O2",
-          "AquaPure en varios pasos",
-          "iS Clinical Fire & Ice",
-          "Masajes faciales y corporales"
-        ]
-      }
+      {"id": "acne", "label": "Акне и постакне", "img": "ba-acne-after", "first": "Observ 520x: воспаления, поры и бактерии на поверхности кожи.", "work": ["Пилинги BioRePeel и химические", "Глубокая, но бережная чистка", "IPL Candela Nordlys", "Frax 1550 для следов и рубцов", "Рецептурные препараты, если нужно"]},
+      {"id": "redness", "label": "Покраснения и розацеа", "img": "scan-daylight", "first": "Observ 520x: сосуды, реактивность и состояние барьера.", "work": ["IPL Candela Nordlys", "DermaLux LED", "Домашний уход для восстановления барьера"]},
+      {"id": "pigment", "label": "Пигмент и мелазма", "img": "ba-pigment-after", "first": "UV-режим Observ: поверхностный и глубокий пигмент.", "work": ["IPL Candela Nordlys", "Cyspera и депигментирующий уход", "Пилинги", "План SPF под вашу кожу"]},
+      {"id": "laxity", "label": "Упругость и овал", "img": "device-volnewmer", "first": "Оценка качества и плотности кожи.", "work": ["Volnewmer: монополярный RF 6,78 МГц", "Микроигольчатый Secret RF", "Полинуклеотиды и биоревитализация", "Экзосомы"]},
+      {"id": "texture", "label": "Поры и текстура", "img": "tx-aparatologia", "first": "Observ 520x: текстура, поры и фотостарение.", "work": ["Лазер Candela Frax 1550", "Secret RF", "Экзосомы + PDRN", "iS Clinical «Огонь и лёд»"]},
+      {"id": "lips", "label": "Губы и контурная пластика", "img": "tx-inyectables", "first": "Если филлер уже есть — сначала УЗИ, потом решаем.", "work": ["Гиалуроновая кислота с естественным результатом", "Контур: подбородок, линия челюсти, скулы", "Ботулинотерапия"]},
+      {"id": "fillers", "label": "Старые филлеры", "img": "tx-diagnostico", "first": "Высокочастотное УЗИ лица: где препарат и не сместился ли он.", "work": ["Гиалуронидаза точечно, под контролем УЗИ", "Восстанавливаем ткани, а не добавляем объём"]},
+      {"id": "hair", "label": "Выпадение волос", "img": "tx-tricologia", "first": "Trichoscan: кожа головы и фолликулы — ищем причину.", "work": ["Мезотерапия кожи головы", "Плазмотерапия", "LED-терапия", "Наружное и внутреннее лечение по назначению"]},
+      {"id": "body", "label": "Живот и растяжки", "img": "ba-body-after", "first": "Оценка кожи после беременности или изменения веса.", "work": ["Frax 1550 для тела", "RF", "Лимфодренаж и моделирующий массаж", "Уходы для тела Biologique Recherche"]},
+      {"id": "glow", "label": "Хочу, чтобы кожа сияла", "img": "marina-boutique", "first": "Диагностика, чтобы выбрать подходящий кабинетный протокол.", "work": ["Biologique Recherche: Biosensible, Lait VIP O2", "Многоэтапный AquaPure", "iS Clinical «Огонь и лёд»", "Массаж лица и тела"]}
     ]
   },
   "sampler": {
-    "title": "Equipos y marcas",
-    "lead": "Equipos y cosmética de Europa y Estados Unidos. El último en llegar, Volnewmer, lo probamos primero en nosotras mismas.",
-    "devices_title": "Aparatología",
+    "title": "Оборудование и бренды",
+    "lead": "Аппараты и косметика из Европы и США. Последний новичок, Volnewmer, мы сначала попробовали на себе.",
+    "devices_title": "Аппараты",
     "devices": [
-      {
-        "n": "Observ 520x",
-        "d": "Diagnóstico de la piel por capas"
-      },
-      {
-        "n": "Ecógrafo de alta frecuencia",
-        "d": "Rellenos y tejidos blandos"
-      },
-      {
-        "n": "Trichoscan",
-        "d": "Cabello y cuero cabelludo"
-      },
-      {
-        "n": "Candela Nordlys IPL",
-        "d": "Rojeces, vasos, pigmento"
-      },
-      {
-        "n": "Candela Frax 1550",
-        "d": "Textura, cicatrices, estrías"
-      },
-      {
-        "n": "Classys Volnewmer",
-        "d": "Lifting con RF monopolar"
-      },
-      {
-        "n": "Secret RF",
-        "d": "RF con microagujas"
-      },
-      {
-        "n": "DermaLux LED",
-        "d": "Calma y regeneración"
-      },
-      {
-        "n": "AquaPure",
-        "d": "Limpieza e hidratación"
-      }
+      {"n": "Observ 520x", "d": "Диагностика кожи по слоям"},
+      {"n": "Высокочастотный УЗИ-аппарат", "d": "Филлеры и мягкие ткани"},
+      {"n": "Trichoscan", "d": "Волосы и кожа головы"},
+      {"n": "Candela Nordlys IPL", "d": "Покраснения, сосуды, пигмент"},
+      {"n": "Candela Frax 1550", "d": "Текстура, рубцы, растяжки"},
+      {"n": "Classys Volnewmer", "d": "Монополярный RF-лифтинг"},
+      {"n": "Secret RF", "d": "Микроигольчатый RF"},
+      {"n": "DermaLux LED", "d": "Успокоение и восстановление"},
+      {"n": "AquaPure", "d": "Очищение и увлажнение"}
     ],
-    "brands_title": "Cosmética profesional",
-    "brands": [
-      "Biologique Recherche",
-      "iS Clinical",
-      "HydroPeptide",
-      "Jan Marini",
-      "Celtermi",
-      "Cyspera",
-      "Medik8",
-      "Biokiss"
-    ],
-    "shop": "La cosmética que te recomendemos en consulta la puedes llevar a casa desde la clínica."
+    "brands_title": "Профессиональная косметика",
+    "brands": ["Biologique Recherche", "iS Clinical", "HydroPeptide", "Jan Marini", "Celtermi", "Cyspera", "Medik8", "Biokiss"],
+    "shop": "Косметику, которую подберём на консультации, можно купить прямо в клинике."
   },
   "perks": {
-    "title": "Para tu primera visita",
+    "title": "Для первого визита",
     "items": [
-      {
-        "t": "−15 %",
-        "d": "en tu primer tratamiento Biosensible de Biologique Recherche."
-      },
-      {
-        "t": "0 €",
-        "d": "consulta online, aunque no estés en Valencia. Después, −5 % en cosmética durante 7 días."
-      },
-      {
-        "t": "20 €",
-        "d": "para ti y para tu amiga cuando ella venga por primera vez."
-      },
-      {
-        "t": "Cashback",
-        "d": "con la tarjeta de fidelidad después de cada visita, y un regalo en tu cumpleaños."
-      }
+      {"t": "−15 %", "d": "на первую процедуру Biosensible от Biologique Recherche."},
+      {"t": "0 €", "d": "онлайн-консультация, даже если вы не в Валенсии. После неё 7 дней −5 % на косметику."},
+      {"t": "20 €", "d": "вам и подруге, когда она придёт в первый раз."},
+      {"t": "Кешбэк", "d": "по карте лояльности после каждого визита и подарок ко дню рождения."}
     ],
-    "packs_title": "Bonos",
+    "packs_title": "Абонементы",
     "packs": [
-      {
-        "t": "AquaPure Medium",
-        "d": "3 sesiones",
-        "price": "390 €",
-        "old": "450 €"
-      },
-      {
-        "t": "IPL facial",
-        "d": "3 sesiones",
-        "price": "690 €",
-        "old": "750 €"
-      },
-      {
-        "t": "RF, cualquier zona",
-        "d": "al reservar 3 sesiones",
-        "price": "−10 %",
-        "old": ""
-      }
+      {"t": "AquaPure Medium", "d": "3 процедуры", "price": "390 €", "old": "450 €"},
+      {"t": "IPL (лицо)", "d": "3 процедуры", "price": "690 €", "old": "750 €"},
+      {"t": "RF, любая зона", "d": "при покупке 3 процедур", "price": "−10 %", "old": ""}
     ],
-    "note": "El precio de cada tratamiento depende del diagnóstico: te lo decimos antes de empezar. Pregunta las condiciones vigentes al reservar."
+    "note": "Стоимость процедур зависит от диагностики: называем её до начала. Актуальные условия уточняйте при записи."
   },
   "reviews": {
-    "title": "Lo que cuentan nuestras pacientes",
-    "lead": "Opiniones de Google, en el idioma en que se escribieron.",
-    "more": "Ver opiniones en Google"
+    "title": "Что рассказывают пациенты",
+    "lead": "Отзывы из Google на языке оригинала.",
+    "more": "Все отзывы в Google"
   },
   "details": {
-    "title": "Los detalles",
+    "title": "Детали",
     "items": [
-      {
-        "t": "Matcha al llegar",
-        "d": "y los caramelos «Korovka» que nuestras pacientes ya conocen."
-      },
-      {
-        "t": "Sala infantil",
-        "d": "para que puedas venir con tus hijos."
-      },
-      {
-        "t": "Esterilidad",
-        "d": "material desechable y protocolos clínicos en cada cabina."
-      },
-      {
-        "t": "En pleno centro",
-        "d": "a 5 minutos de la Plaza del Ayuntamiento."
-      }
+      {"t": "Матча при встрече", "d": "и конфеты «Коровка», которые наши пациенты уже знают."},
+      {"t": "Детская комната", "d": "можно прийти на процедуру с ребёнком."},
+      {"t": "Стерильность", "d": "одноразовые материалы и клинические протоколы в каждом кабинете."},
+      {"t": "В самом центре", "d": "5 минут пешком от Plaza del Ayuntamiento."}
     ]
   },
   "faq": {
-    "title": "Preguntas frecuentes",
+    "title": "Частые вопросы",
     "items": [
-      {
-        "q": "No sé qué necesita mi piel. ¿Por dónde empiezo?",
-        "a": "Por el diagnóstico. Analizamos la piel, te explicamos qué vemos y te proponemos un plan de tratamientos y de cuidado en casa. Si no necesitas nada, te lo decimos."
-      },
-      {
-        "q": "¿Cuánto cuesta?",
-        "a": "Depende de lo que muestre el diagnóstico, por eso no publicamos una lista de precios. Antes de empezar cualquier tratamiento te decimos el precio exacto. La consulta online es gratuita."
-      },
-      {
-        "q": "¿Puedo hacer la consulta sin estar en Valencia?",
-        "a": "Sí. En la consulta online revisamos tu cuidado actual y te recomendamos productos. Después tienes un 5 % de descuento en cosmética profesional durante 7 días."
-      },
-      {
-        "q": "Tengo rellenos de otra clínica. ¿Podéis valorarlos?",
-        "a": "Sí. Con la ecografía facial vemos si queda producto, dónde y a qué profundidad. Si hay que corregirlo, la hialuronidasa se aplica de forma localizada y con control ecográfico, no a ciegas."
-      },
-      {
-        "q": "¿Duele?",
-        "a": "Antes de empezar te explicamos qué vas a sentir y elegimos la técnica más cómoda para ti. Una paciente lo resumió así: «Всё прошло совершенно безболезненно» (todo fue completamente indoloro)."
-      },
-      {
-        "q": "¿En qué idiomas atendéis?",
-        "a": "En español, ruso y ucraniano."
-      },
-      {
-        "q": "¿Tratáis también a hombres?",
-        "a": "Sí. Cada vez más hombres vienen a cuidar su piel: microagujas con RF, limpiezas, aparatología, tricología y masajes."
-      },
-      {
-        "q": "¿Cómo reservo?",
-        "a": "Por WhatsApp, por teléfono o por mensaje directo en Instagram. Te respondemos y te proponemos día y hora."
-      }
+      {"q": "Не знаю, что нужно моей коже. С чего начать?", "a": "С диагностики. Изучаем кожу, объясняем, что видим, и предлагаем план процедур и домашнего ухода. Если ничего не нужно — так и скажем."},
+      {"q": "Сколько это стоит?", "a": "Зависит от того, что покажет диагностика, поэтому прайс мы не публикуем. До начала любой процедуры называем точную стоимость. Онлайн-консультация бесплатная."},
+      {"q": "Можно ли проконсультироваться, если я не в Валенсии?", "a": "Да. На онлайн-консультации разберём ваш уход и подберём средства. После неё 7 дней действует скидка 5 % на профессиональную косметику."},
+      {"q": "У меня филлеры из другой клиники. Вы можете их оценить?", "a": "Да. На УЗИ лица видно, остался ли препарат, где и на какой глубине. Если нужна коррекция, гиалуронидазу вводим точечно и под контролем УЗИ, а не «на глаз»."},
+      {"q": "Это больно?", "a": "До начала объясняем, что вы почувствуете, и подбираем самую комфортную технику. Как написала одна пациентка: «Всё прошло совершенно безболезненно»."},
+      {"q": "На каких языках вы говорите?", "a": "По-русски, по-украински и по-испански."},
+      {"q": "Мужчин тоже принимаете?", "a": "Да. Всё больше мужчин приходят ухаживать за кожей: микроигольчатый RF, чистки, аппаратные процедуры, трихология и массаж."},
+      {"q": "Как записаться?", "a": "В WhatsApp, по телефону или в директ Instagram. Ответим и предложим день и время."}
     ]
   },
   "book": {
-    "title": "Escríbenos y te proponemos día y hora",
-    "lead": "Rellena tres datos y se abrirá WhatsApp con el mensaje listo. No guardamos nada en esta web.",
-    "f_name": "Tu nombre",
-    "f_name_ph": "Por ejemplo, Lucía",
-    "f_concern": "Qué te interesa",
-    "default_concern": "Diagnóstico y consulta",
-    "online_concern": "Consulta online gratis",
-    "f_when": "Cuándo te viene bien",
-    "when_opts": [
-      "Por la mañana",
-      "Por la tarde",
-      "Lo antes posible"
-    ],
-    "f_lang": "Idioma de la consulta",
-    "langs": [
-      "Español",
-      "Русский",
-      "Українська"
-    ],
-    "send": "Abrir WhatsApp",
-    "msg": "Hola, soy {name}. Me gustaría reservar: {concern}.{when} Idioma: {lang}.",
-    "msg_when": " Me viene bien: {when}.",
+    "title": "Напишите нам — предложим день и время",
+    "lead": "Заполните три поля, и откроется WhatsApp с готовым сообщением. Сайт ничего не сохраняет.",
+    "f_name": "Ваше имя",
+    "f_name_ph": "Например, Анна",
+    "f_concern": "Что интересует",
+    "default_concern": "Диагностика и консультация",
+    "online_concern": "Бесплатная онлайн-консультация",
+    "f_when": "Когда удобно",
+    "when_opts": ["Утром", "После обеда", "Как можно скорее"],
+    "f_lang": "Язык консультации",
+    "langs": ["Español", "Русский", "Українська"],
+    "send": "Открыть WhatsApp",
+    "msg": "Здравствуйте! Меня зовут {name}. Хочу записаться: {concern}.{when} Язык: {lang}.",
+    "msg_when": " Удобно: {when}.",
     "anon": "…",
-    "hello": "Hola, quiero reservar un diagnóstico en Kostanda Beauty.",
-    "hello_online": "Hola, me gustaría hacer la consulta online gratuita.",
-    "msg_noname": "Hola. Me gustaría reservar: {concern}.{when} Idioma: {lang}."
+    "hello": "Здравствуйте! Хочу записаться на диагностику в Kostanda Beauty.",
+    "hello_online": "Здравствуйте! Хочу записаться на бесплатную онлайн-консультацию.",
+    "msg_noname": "Здравствуйте! Хочу записаться: {concern}.{when} Язык: {lang}."
   },
   "contact": {
-    "address_label": "Dirección",
-    "address": [
-      "C/ de Guillem de Castro, 8",
-      "46001 València · Ciutat Vella"
-    ],
-    "hours_label": "Horario",
-    "hours": "Desde las 10:00, con cita previa",
-    "phone_label": "Teléfono y WhatsApp",
-    "route": "Cómo llegar",
+    "address_label": "Адрес",
+    "address": ["C/ de Guillem de Castro, 8", "46001 València · Ciutat Vella"],
+    "hours_label": "Время работы",
+    "hours": "С 10:00, по предварительной записи",
+    "phone_label": "Телефон и WhatsApp",
+    "route": "Построить маршрут",
     "instagram": "Instagram"
   },
-  "sticky": "Reservar por WhatsApp",
+  "sticky": "Записаться в WhatsApp",
   "footer": {
-    "tagline": "Medicina estética con diagnóstico en el centro de Valencia.",
-    "registry": "Centro sanitario · Nº de registro 45856",
-    "rights": "Todos los derechos reservados."
+    "tagline": "Эстетическая медицина с диагностикой в центре Валенсии.",
+    "registry": "Медицинский центр · Регистрационный № 45856",
+    "rights": "Все права защищены."
   }
 }
