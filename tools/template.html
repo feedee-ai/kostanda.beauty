@@ -1,0 +1,408 @@
+{%- macro picture(name, alt, sizes='100vw', cls='', loading='lazy', fetch='') -%}
+{%- set i = img[name] -%}
+<img class="{{ cls }}" src="{{ i.src }}" srcset="{{ i.srcset }}" sizes="{{ sizes }}" width="{{ i.w }}" height="{{ i.h }}" alt="{{ alt }}" loading="{{ loading }}" decoding="async"{% if fetch %} fetchpriority="{{ fetch }}"{% endif %}>
+{%- endmacro -%}
+{%- macro icon(id, cls='icon') -%}<svg class="{{ cls }}" aria-hidden="true"><use href="#i-{{ id }}"/></svg>{%- endmacro -%}
+{%- macro wa(text) -%}https://wa.me/{{ c.wa }}?text={{ text | urlencode }}{%- endmacro -%}
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>document.documentElement.classList.add('js')</script>
+<title>{{ t.meta.title }}</title>
+<meta name="description" content="{{ t.meta.description }}">
+<link rel="canonical" href="{{ canonical }}">
+{% for a in alternates %}
+<link rel="alternate" hreflang="{{ a.lang }}" href="{{ a.href }}">
+{% endfor %}
+<link rel="alternate" hreflang="x-default" href="{{ site_url }}/">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kostanda Beauty">
+<meta property="og:title" content="{{ t.meta.title }}">
+<meta property="og:description" content="{{ t.meta.description }}">
+<meta property="og:url" content="{{ canonical }}">
+<meta property="og:image" content="{{ site_url }}/assets/img/og.jpg">
+<meta property="og:locale" content="{{ t.meta.locale }}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/assets/fonts/unbounded-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/geologica-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+{% if lang == 'ru' %}<link rel="preload" href="/assets/fonts/unbounded-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>{% endif %}
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["MedicalClinic", "MedicalBusiness"],
+  "@id": "{{ site_url }}/#clinic",
+  "name": "Kostanda Beauty",
+  "description": {{ t.meta.description | tojson }},
+  "url": "{{ canonical }}",
+  "image": "{{ site_url }}/assets/img/og.jpg",
+  "logo": "{{ site_url }}/favicon.svg",
+  "telephone": "+34622650202",
+  "medicalSpecialty": "Dermatologic",
+  "address": {"@type": "PostalAddress", "streetAddress": "Carrer de Guillem de Castro, 8", "addressLocality": "València", "postalCode": "46001", "addressRegion": "Valencia", "addressCountry": "ES"},
+  "geo": {"@type": "GeoCoordinates", "latitude": 39.4692, "longitude": -0.3813},
+  "founder": {"@type": "Person", "name": "Marina Kostanda", "jobTitle": "Médico estético"},
+  "knowsLanguage": ["es", "ru", "uk"],
+  "sameAs": ["{{ c.instagram }}"]
+}
+</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38A5.9 5.9 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13.67.66 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.13-1.38.66-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88Z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M7 7h10v10M7 17 17 7"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></g></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></g></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M5 12h14M12 5v14"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h10"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-stitch" viewBox="0 0 10 10"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M2 2l6 6M8 2 2 8"/></symbol>
+  <symbol id="i-logo" viewBox="100 120 730 480"><g><path d="M222 125A290 290 0 0 0 222 595A290 290 0 0 0 222 125Z"/><path d="M382 125A290 290 0 0 0 382 595A290 290 0 0 0 382 125Z"/><path d="M825 125A250 250 0 0 0 553 400A250 250 0 0 0 825 125Z"/><path d="M553 318A250 250 0 0 0 825 595A250 250 0 0 0 553 318Z"/></g></symbol>
+</svg>
+
+<a class="skip" href="#main">{{ t.skip }}</a>
+
+<header class="top" data-top>
+  <div class="top__in wrap">
+    <a class="brand" href="{{ path }}" aria-label="{{ t.nav.home }}">
+      <svg class="brand__mark" aria-hidden="true"><use href="#i-logo"/></svg>
+      <span class="brand__word">Kostanda Beauty</span>
+    </a>
+    <nav class="top__nav" aria-label="{{ t.nav.menu }}">
+      {% for n in t.nav['items'] %}<a href="{{ n.href }}">{{ n.label }}</a>{% endfor %}
+    </nav>
+    <div class="top__end">
+      <div class="langs" role="group" aria-label="Idioma / Язык / Language">
+        {% for a in alternates %}<a href="{{ a.path }}" hreflang="{{ a.lang }}" lang="{{ a.lang }}"{% if a.lang == lang %} aria-current="true"{% endif %}>{{ a.label }}</a>{% endfor %}
+      </div>
+      <a class="btn btn--ink btn--sm top__book" href="{{ wa(t.book.hello) }}" target="_blank" rel="noopener">{{ icon('wa') }}<span>{{ t.nav.book }}</span></a>
+      <button class="top__menu" type="button" aria-expanded="false" aria-controls="sheet" data-menu>{{ icon('menu') }}<span class="sr">{{ t.nav.menu }}</span></button>
+    </div>
+  </div>
+</header>
+
+<div class="sheet" id="sheet" hidden data-sheet>
+  <div class="sheet__in">
+    <button class="sheet__close" type="button" data-menu-close>{{ icon('x') }}<span class="sr">{{ t.nav.close }}</span></button>
+    <nav aria-label="{{ t.nav.menu }}">
+      {% for n in t.nav['items'] %}<a href="{{ n.href }}" data-menu-link>{{ n.label }}</a>{% endfor %}
+    </nav>
+    <div class="langs langs--sheet">
+      {% for a in alternates %}<a href="{{ a.path }}" hreflang="{{ a.lang }}" lang="{{ a.lang }}"{% if a.lang == lang %} aria-current="true"{% endif %}>{{ a.label }}</a>{% endfor %}
+    </div>
+    <a class="btn btn--ink" href="#reservar" data-menu-link>{{ icon('wa') }}<span>{{ t.nav.book }}</span></a>
+  </div>
+</div>
+
+<main id="main">
+
+<section class="hero chart" aria-labelledby="hero-title">
+  <div class="hero__in wrap">
+    <div class="hero__copy">
+      <h1 class="hero__title" id="hero-title">
+        <span class="hero__line">{{ t.hero.title[0] }}</span>
+        <span class="hero__line hero__line--blue">{{ t.hero.title[1] }}</span>
+      </h1>
+      <p class="hero__lead">{{ t.hero.lead }}</p>
+      <div class="hero__ctas">
+        <a class="btn btn--ink" href="{{ wa(t.book.hello) }}" target="_blank" rel="noopener" data-cta-main>{{ icon('wa') }}<span>{{ t.hero.cta }}</span></a>
+        <a class="btn btn--line" href="{{ wa(t.book.hello_online) }}" target="_blank" rel="noopener"><span>{{ t.hero.cta2 }}</span>{{ icon('arrow') }}</a>
+      </div>
+      <ul class="proof">
+        {% for p in t.hero.proof %}<li>{{ icon('stitch', 'proof__x') }}{{ p }}</li>{% endfor %}
+      </ul>
+    </div>
+    <figure class="hero__fig" data-stitch>
+      <div class="hero__frame">
+        {{ picture('hero-portrait', t.hero.caption, '(min-width: 960px) 46vw, 100vw', 'hero__photo', 'eager', 'high') }}
+        <canvas class="hero__canvas" role="img" aria-label="{{ t.hero.chart_label }}" data-stitch-canvas></canvas>
+        <button class="hero__toggle" type="button" data-stitch-toggle data-label-pattern="{{ t.hero.toggle_pattern }}" data-label-photo="{{ t.hero.toggle_photo }}">{{ icon('stitch', 'icon icon--x') }}<span>{{ t.hero.toggle_pattern }}</span></button>
+      </div>
+      <figcaption class="hero__cap">{{ t.hero.caption }}</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="scan" id="diagnostico" aria-labelledby="scan-title">
+  <div class="wrap">
+    <div class="scan__head">
+      <h2 class="h2" id="scan-title">{{ t.scan.title }}</h2>
+      <p class="lead">{{ t.scan.lead }}</p>
+    </div>
+    <div class="scan__frames">
+      {% for f in t.scan.frames %}
+      <figure class="scan__frame scan__frame--{{ loop.index }}">
+        <div class="scan__img">{{ picture(f.img, f.label ~ ' — ' ~ f.note, '(min-width: 960px) 30vw, 78vw') }}</div>
+        <figcaption><span class="swatch swatch--{{ loop.index }}" aria-hidden="true"></span><strong>{{ f.label }}</strong><span>{{ f.note }}</span></figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+    <p class="scan__case">{{ t.scan.case }}</p>
+    <ul class="scan__points">
+      {% for p in t.scan.points %}<li><h3>{{ p.t }}</h3><p>{{ p.d }}</p></li>{% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="process chart chart--soft" aria-labelledby="process-title">
+  <div class="wrap">
+    <h2 class="h2 h2--sm" id="process-title">{{ t.process.title }}</h2>
+    <ol class="thread" data-reveal>
+      <span class="thread__line" aria-hidden="true"></span>
+      {% for s in t.process.steps %}
+      <li class="thread__step" style="--i: {{ loop.index0 }}">
+        {{ icon('stitch', 'thread__x') }}
+        <h3>{{ s.t }}</h3>
+        <p>{{ s.d }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="results" id="resultados" aria-labelledby="results-title">
+  <div class="wrap results__in">
+    <div class="results__head">
+      <h2 class="h2" id="results-title">{{ t.results.title }}</h2>
+      <p class="lead">{{ t.results.lead }}</p>
+      <div class="cases" role="tablist" aria-label="{{ t.results.title }}">
+        {% for cs in t.results.cases %}
+        <button class="case" type="button" role="tab" id="case-{{ cs.id }}" aria-selected="{{ 'true' if loop.first else 'false' }}" aria-controls="compare" data-case="{{ cs.id }}" data-before="{{ img['ba-' ~ cs.id ~ '-before'].srcset }}" data-after="{{ img['ba-' ~ cs.id ~ '-after'].srcset }}" data-ratio="{{ img['ba-' ~ cs.id ~ '-before'].w }}/{{ img['ba-' ~ cs.id ~ '-before'].h }}">
+          <span class="case__label">{{ cs.label }}</span><span class="case__note">{{ cs.note }}</span>
+        </button>
+        {% endfor %}
+      </div>
+      <p class="results__story">{{ t.results.story }}</p>
+    </div>
+    {% set first = t.results.cases[0].id %}
+    <div class="compare" id="compare" role="tabpanel" aria-labelledby="case-{{ first }}" style="--pos: 50%; aspect-ratio: {{ img['ba-' ~ first ~ '-before'].w }}/{{ img['ba-' ~ first ~ '-before'].h }}" data-compare>
+      <img class="compare__img" data-compare-after src="{{ img['ba-' ~ first ~ '-after'].src }}" srcset="{{ img['ba-' ~ first ~ '-after'].srcset }}" sizes="(min-width: 960px) 56vw, 100vw" alt="{{ t.results.after }}" loading="lazy" decoding="async">
+      <img class="compare__img compare__img--before" data-compare-before src="{{ img['ba-' ~ first ~ '-before'].src }}" srcset="{{ img['ba-' ~ first ~ '-before'].srcset }}" sizes="(min-width: 960px) 56vw, 100vw" alt="{{ t.results.before }}" loading="lazy" decoding="async">
+      <span class="compare__tag compare__tag--b" aria-hidden="true">{{ t.results.before }}</span>
+      <span class="compare__tag compare__tag--a" aria-hidden="true">{{ t.results.after }}</span>
+      <span class="compare__handle" aria-hidden="true"><span></span></span>
+      <input class="compare__range" type="range" min="0" max="100" value="50" aria-label="{{ t.results.drag }}" data-compare-range>
+    </div>
+    <p class="results__note">{{ t.results.note }}</p>
+  </div>
+</section>
+
+<section class="rules" aria-labelledby="rules-title">
+  <div class="wrap rules__in">
+    <div class="rules__head">
+      <h2 class="h2" id="rules-title">{{ t.rules.title }}</h2>
+      <p class="lead">{{ t.rules.lead }}</p>
+    </div>
+    <ol class="rules__list">
+      {% for r in t.rules['items'] %}
+      {% set dg = digits[loop.index | string] %}
+      <li class="rule" data-reveal>
+        <svg class="rule__num" viewBox="-2 -2 {{ dg.w + 4 }} {{ dg.h + 4 }}" aria-hidden="true"><path d="{{ dg.d }}" pathLength="1"/></svg>
+        <h3 class="rule__t">{{ r.t }}</h3>
+        <p class="rule__d">{{ r.d }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+    <div class="rules__close">
+      <p>{{ t.rules.closing }}</p>
+      <p class="sign">{{ t.rules.sign }}</p>
+      <a class="btn btn--ink" href="#reservar">{{ icon('wa') }}<span>{{ t.hero.cta }}</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="story chart chart--soft" id="marina" aria-labelledby="story-title">
+  <div class="wrap story__in">
+    <div class="story__side">
+      <h2 class="h2" id="story-title">{{ t.story.title }}</h2>
+      <p class="lead">{{ t.story.lead }}</p>
+      <figure class="story__portrait">{{ picture('marina-observ', t.team.members[0].n, '(min-width: 960px) 34vw, 100vw') }}</figure>
+      <blockquote class="story__quote"><p>{{ t.story.quote }}</p><footer class="sign">{{ t.story.sign }}</footer></blockquote>
+    </div>
+    <ol class="story__thread" data-reveal>
+      {% for s in t.story.steps %}
+      <li class="milestone">
+        {{ icon('stitch', 'milestone__x') }}
+        <p class="milestone__when">{{ s.when }}</p>
+        <h3 class="milestone__t">{{ s.t }}</h3>
+        <p class="milestone__d">{{ s.d }}</p>
+        {% if s.img %}<figure class="milestone__img">{{ picture(s.img, s.t, '(min-width: 960px) 30vw, 88vw') }}</figure>{% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="team" aria-labelledby="team-title">
+  <div class="wrap team__in">
+    <figure class="team__photo">{{ picture('team', t.team.photo_caption, '(min-width: 960px) 46vw, 100vw') }}<figcaption>{{ t.team.photo_caption }}</figcaption></figure>
+    <div class="team__copy">
+      <h2 class="h2" id="team-title">{{ t.team.title }}</h2>
+      <p class="lead">{{ t.team.lead }}</p>
+      <ul class="team__list">
+        {% for m in t.team.members %}<li><h3>{{ m.n }}</h3><p class="team__role">{{ m.r }}</p><p>{{ m.d }}</p></li>{% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="concerns" id="tratamientos" aria-labelledby="concerns-title">
+  <div class="wrap">
+    <div class="concerns__head">
+      <h2 class="h2" id="concerns-title">{{ t.concerns.title }}</h2>
+      <p class="lead">{{ t.concerns.lead }}</p>
+    </div>
+    <div class="concerns__body">
+      <div class="chips" role="tablist" aria-label="{{ t.concerns.title }}">
+        {% for it in t.concerns['items'] %}
+        <button class="chip" type="button" role="tab" id="tab-{{ it.id }}" aria-selected="{{ 'true' if loop.first else 'false' }}" aria-controls="panel-{{ it.id }}" tabindex="{{ '0' if loop.first else '-1' }}" data-concern="{{ it.id }}">{{ it.label }}</button>
+        {% endfor %}
+      </div>
+      <div class="panels">
+        {% for it in t.concerns['items'] %}
+        <div class="panel" role="tabpanel" id="panel-{{ it.id }}" aria-labelledby="tab-{{ it.id }}"{% if not loop.first %} hidden{% endif %}>
+          <figure class="panel__img">{{ picture(it.img, it.label, '(min-width: 960px) 26vw, 100vw') }}</figure>
+          <div class="panel__copy">
+            <h3 class="panel__t">{{ it.label }}</h3>
+            <p class="panel__k">{{ t.concerns.look_first }}</p>
+            <p class="panel__first">{{ it.first }}</p>
+            <p class="panel__k">{{ t.concerns.work_with }}</p>
+            <ul class="panel__list">{% for w in it.work %}<li>{{ icon('stitch', 'li-x') }}{{ w }}</li>{% endfor %}</ul>
+            <a class="btn btn--ink" href="#reservar" data-pick-concern="{{ it.label }}">{{ icon('wa') }}<span>{{ t.concerns.ask }}</span></a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sampler chart" aria-labelledby="sampler-title">
+  <div class="wrap sampler__in">
+    <div class="sampler__head">
+      <h2 class="h2" id="sampler-title">{{ t.sampler.title }}</h2>
+      <p class="lead">{{ t.sampler.lead }}</p>
+    </div>
+    <div class="sampler__cols">
+      <div>
+        <h3 class="sampler__k">{{ t.sampler.devices_title }}</h3>
+        <dl class="sampler__list">
+          {% for d in t.sampler.devices %}<div><dt>{{ d.n }}</dt><dd>{{ d.d }}</dd></div>{% endfor %}
+        </dl>
+      </div>
+      <div>
+        <h3 class="sampler__k">{{ t.sampler.brands_title }}</h3>
+        <ul class="brands">{% for b in t.sampler.brands %}<li>{{ b }}</li>{% endfor %}</ul>
+        <p class="sampler__shop">{{ t.sampler.shop }}</p>
+        <figure class="sampler__img">{{ picture('device-volnewmer', 'Classys Volnewmer', '(min-width: 960px) 40vw, 100vw') }}</figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="perks" aria-labelledby="perks-title">
+  <div class="wrap perks__in">
+    <h2 class="h2" id="perks-title">{{ t.perks.title }}</h2>
+    <ul class="perks__list">
+      {% for p in t.perks['items'] %}<li><span class="perks__v">{{ p.t }}</span><p>{{ p.d }}</p></li>{% endfor %}
+    </ul>
+    <div class="packs">
+      <h3 class="sampler__k">{{ t.perks.packs_title }}</h3>
+      <ul>
+        {% for p in t.perks.packs %}<li><span class="packs__t">{{ p.t }}<small>{{ p.d }}</small></span><span class="packs__p">{% if p.old %}<s>{{ p.old }}</s> {% endif %}{{ p.price }}</span></li>{% endfor %}
+      </ul>
+      <p class="packs__note">{{ t.perks.note }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="opiniones" aria-labelledby="reviews-title">
+  <div class="wrap">
+    <div class="reviews__head">
+      <h2 class="h2" id="reviews-title">{{ t.reviews.title }}</h2>
+      <p class="lead">{{ t.reviews.lead }}</p>
+    </div>
+    <ul class="quotes">
+      {% for r in reviews %}
+      <li class="quote{% if r.text | length < 60 %} quote--short{% endif %}" lang="{{ r.lang }}"><blockquote><p>{{ r.text }}</p></blockquote><p class="quote__who">{{ r.name }} <span>Google</span></p></li>
+      {% endfor %}
+    </ul>
+    <a class="link" href="{{ c.reviews }}" target="_blank" rel="noopener">{{ t.reviews.more }}{{ icon('out') }}</a>
+  </div>
+</section>
+
+<section class="faq" aria-labelledby="faq-title">
+  <div class="wrap faq__in">
+    <h2 class="h2" id="faq-title">{{ t.faq.title }}</h2>
+    <div class="faq__list">
+      {% for f in t.faq['items'] %}
+      <details class="qa"><summary><span>{{ f.q }}</span>{{ icon('plus', 'qa__i') }}</summary><div class="qa__a"><p>{{ f.a }}</p></div></details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="book" id="reservar" aria-labelledby="book-title">
+  <div class="wrap book__in">
+    <div class="book__head">
+      <h2 class="h2" id="book-title">{{ t.book.title }}</h2>
+      <p class="lead">{{ t.book.lead }}</p>
+    </div>
+    <form class="form" data-book novalidate>
+      <label class="field"><span>{{ t.book.f_name }}</span><input name="name" type="text" autocomplete="given-name" placeholder="{{ t.book.f_name_ph }}"></label>
+      <label class="field"><span>{{ t.book.f_concern }}</span>
+        <select name="concern" data-concern-select>
+          <option>{{ t.book.default_concern }}</option>
+          <option>{{ t.book.online_concern }}</option>
+          {% for it in t.concerns['items'] %}<option>{{ it.label }}</option>{% endfor %}
+        </select>
+      </label>
+      <fieldset class="field"><legend>{{ t.book.f_when }}</legend>
+        <div class="pills">{% for w in t.book.when_opts %}<label class="pill"><input type="radio" name="when" value="{{ w }}"><span>{{ w }}</span></label>{% endfor %}</div>
+      </fieldset>
+      <fieldset class="field"><legend>{{ t.book.f_lang }}</legend>
+        <div class="pills">{% for l in t.book.langs %}<label class="pill"><input type="radio" name="lang" value="{{ l }}"{% if (lang == 'ru' and loop.index == 2) or (lang != 'ru' and loop.first) %} checked{% endif %}><span>{{ l }}</span></label>{% endfor %}</div>
+      </fieldset>
+      <p class="form__preview" aria-live="polite" data-preview></p>
+      <button class="btn btn--light btn--wide" type="submit">{{ icon('wa') }}<span>{{ t.book.send }}</span></button>
+    </form>
+    <div class="book__info">
+      <dl class="contact">
+        <div><dt>{{ icon('pin') }}{{ t.contact.address_label }}</dt><dd>{{ t.contact.address[0] }}<br>{{ t.contact.address[1] }}<br><a class="link" href="{{ c.maps }}" target="_blank" rel="noopener">{{ t.contact.route }}{{ icon('out') }}</a></dd></div>
+        <div><dt>{{ icon('clock') }}{{ t.contact.hours_label }}</dt><dd>{{ t.contact.hours }}</dd></div>
+        <div><dt>{{ icon('phone') }}{{ t.contact.phone_label }}</dt><dd><a href="{{ c.phone_href }}">{{ c.phone_display }}</a></dd></div>
+        <div><dt>{{ icon('ig') }}{{ t.contact.instagram }}</dt><dd><a href="{{ c.instagram }}" target="_blank" rel="noopener">{{ c.instagram_handle }}</a></dd></div>
+      </dl>
+      <ul class="details">
+        {% for d in t.details['items'] %}<li><strong>{{ d.t }}</strong> {{ d.d }}</li>{% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <a class="brand brand--light" href="{{ path }}" aria-label="{{ t.nav.home }}"><svg class="brand__mark" aria-hidden="true"><use href="#i-logo"/></svg><span class="brand__word">Kostanda Beauty</span></a>
+    <p>{{ t.footer.tagline }}</p>
+    <p>{{ t.footer.registry }}</p>
+    <div class="langs langs--foot">{% for a in alternates %}<a href="{{ a.path }}" hreflang="{{ a.lang }}" lang="{{ a.lang }}"{% if a.lang == lang %} aria-current="true"{% endif %}>{{ a.label }}</a>{% endfor %}</div>
+    <p class="foot__small">© 2026 Kostanda Beauty SL · {{ t.footer.rights }}</p>
+  </div>
+</footer>
+
+<a class="sticky" href="#reservar" data-sticky>{{ icon('wa') }}<span>{{ t.sticky }}</span></a>
+
+<script>window.KB = {wa: "{{ c.wa }}", book: {{ wa_text_json | safe }}};</script>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
